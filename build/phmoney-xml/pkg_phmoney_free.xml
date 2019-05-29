@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="0.2.14" minimun_version="4.0" maximun_version="4.0" method="upgrade" element="pkg_phmoney">
+    <name>PH Money Package FREE</name>
+    <creationDate>29-May-2019</creationDate>
+    <author>KAINOTOMO PH LTD</author>
+    <authorEmail>info@kainotomo.com</authorEmail>
+    <authorUrl>https://www.kainotomo.com</authorUrl>
+    <copyright>KAINOTOMO PH LTD - All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <packagename>phmoney</packagename>
+    <version>0.2.14</version>
+    <url>https://www.kainotomo.com/</url>
+    <packager>KAINOTOMO PH LTD</packager>
+    <packagerurl>https://www.kainotomo.com/</packagerurl>
+    <description>PH Money Package</description>
+    <files>    
+        <file type="library" id="kainotomo" >kainotomo_4.0.0_j4.0.zip</file>
+        <file type="component" id="com_phmoney">com_phmoney_0.2.14_j4.0.zip</file>
+    </files>
+    <blockChildUninstall>1</blockChildUninstall>
+    <updateservers>
+        <server type="extension" priority="1" name="PH Money">https://www.kainotomo.com/index.php?option=com_phreleasesystem&amp;view=xml&amp;layout=extension&amp;product=ph-money&amp;dummy=extension.xml</server>
+    </updateservers>
+</extension>

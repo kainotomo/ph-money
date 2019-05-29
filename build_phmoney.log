@@ -1,0 +1,45 @@
+Buildfile: D:\phalo\Documents\projects\ph_money\build_phmoney.xml
+
+create:
+
+fix_version_date:
+  [replace] Replaced 6 occurrences in 1 files.
+  [replace] Replaced 2 occurrences in 1 files.
+
+clean:
+     [echo] Clean directory
+   [delete] Deleting directory D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging
+
+component:
+     [echo] Create com_phmoney package
+     [echo] Copy the admin folder
+     [copy] Copying 165 files to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\admin
+     [move] Moving 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney
+     [move] Moving 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney
+     [echo] Copy the site folder
+     [copy] Copying 43 files to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\site
+     [echo] Copy the media folder
+     [copy] Copying 2 files to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\media\images
+     [copy] Copying 2 files to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\media\js
+     [echo] Copy language files
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\language\admin
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\language\admin
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\staging\com_phmoney\language\site
+     [echo] Archiving package
+      [zip] Building zip: D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\com_phmoney_0.0.4_j4.0.zip
+
+package:
+     [echo] Create installation packages.
+     [echo] Create tmp directory.
+    [mkdir] Created dir: D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\zip
+     [move] Moving 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\zip
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\zip
+     [echo] Create package file.
+      [zip] Building zip: D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\pkg_phmoney_0.0.4_j4.0.zip
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-xml
+     [copy] Copying 1 file to D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4
+     [echo] Delete tmp directory.
+   [delete] Deleting directory D:\phalo\Documents\projects\ph_money\build\phmoney-pkg\packages\0.0.4\zip
+
+BUILD SUCCESSFUL
+Total time: 1 second

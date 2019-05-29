@@ -1,0 +1,1 @@
+ant -buildfile build_phmoney.xml create > build_phmoney.log
