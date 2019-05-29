@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+    
+    <fieldset name="splits" label="JDETAILS">
+        <field 
+            name="id" 
+            type="hidden" 
+            label="JGLOBAL_FIELD_ID_LABEL"
+            class="readonly" 
+            size="10" 
+            default="0"
+            readonly="true" 
+        />
+        
+        <field name="portfolio_id" 
+               type="portfolios" 
+               readonly="true"
+               label="COM_PHMONEY_PORTFOLIO" required="true">
+        </field>
+    
+        <field 
+            name="currency_id"
+            type="currencys"
+            class="advancedSelect"
+            label="COM_PHMONEY_ACCOUNT"
+            required="true"
+            default="139"
+        />
+    
+        <field name="value" type="number" 
+               default="1" 
+               label="COM_PHMONEY_RATE" 
+               description="COM_PHMONEY_RATE_VALUE_DESC"
+               required="true" />
+    
+    </fieldset>
+    
+</form>

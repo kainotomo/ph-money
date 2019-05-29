@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+    
+    <fields name="filter">
+        
+        <fieldset name="filter" label="COM_PHMONEY_FILTER">
+                
+            <field name="portfolio" 
+                   type="portfolios" 
+                   label="COM_PHMONEY_PORTFOLIO"
+                   onchange="this.form.submit();">
+            </field>
+
+            <field
+                name="published"
+                type="status"
+                label="COM_CONTENT_FILTER_PUBLISHED"
+                description="COM_CONTENT_FILTER_PUBLISHED_DESC"
+                onchange="this.form.submit();"
+            >
+                <option value="">JOPTION_SELECT_PUBLISHED</option>
+            </field>
+            
+            <field name="split_type" type="splittypes" 
+                   default="" label="COM_PHMONEY_SPLIT_TYPE_LABEL" 
+                   multiple="true"
+                   class="advancedSelect">
+            </field>
+
+            <field name="account_type" type="accounttypes" 
+                   default="" label="COM_PHMONEY_ACCOUNT_TYPE_LABEL" 
+                   description="COM_PHMONEY_ACCOUNT_TYPE_DESC"
+                   onchange="this.form.submit();">
+                <option value="">COM_PHMONEY_SELECT_ACCOUNT_TYPE</option>
+            </field>
+        
+            <field 
+                name="account"
+                type="accountedit"
+                class="advancedSelect"
+                label="COM_PHMONEY_ACCOUNT"
+                multiple="true"
+                hint="COM_PHMONEY_SELECT_ACCOUNT"
+            />
+        
+            <field
+                name="tag"
+                type="tag"
+                multiple="true"
+                class="multipleTags"
+                mode="nested"
+                onchange="this.form.submit();"
+            />
+
+            <field
+                name="search"
+                type="text"
+                label="COM_CONTENT_FILTER_SEARCH_LABEL"
+                hint="JSEARCH_FILTER"
+            />
+        
+            <input type="hidden" name="form_submited" value="1"/>
+            
+            <field 
+                name="post_date" 
+                type="calendar" 
+                label="JDATE"
+                translateformat="true"
+                showtime="false"
+                size="22"
+                filter="user_utc" 
+            />
+        
+        </fieldset>
+        
+    </fields>
+
+    <fields name="list">
+        
+        <fieldset name="list" label="JGLOBAL_LIST">
+            
+            <field
+                name="fullordering"
+                type="list"
+                label="COM_CONTENT_LIST_FULL_ORDERING"
+                description="COM_CONTENT_LIST_FULL_ORDERING_DESC"
+                onchange="this.form.submit();"
+                default="t.post_date DESC"
+            >
+                <option value="">JGLOBAL_SORT_BY</option>
+                <option value="t.post_date ASC">JDATE_ASC</option>
+                <option value="t.post_date DESC">JDATE_DESC</option>
+            </field>
+
+            <field
+                name="limit"
+                type="limitbox"
+                label="COM_CONTENT_LIST_LIMIT"
+                description="COM_CONTENT_LIST_LIMIT_DESC"
+                class="input-mini"
+                default="25"
+                onchange="this.form.submit();"
+            />
+        
+        </fieldset>
+        
+    </fields>
+    
+</form>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+
+    <fieldset name="description"
+                  label="JGLOBAL_DESCRIPTION">
+
+        <field
+            name="id"
+            type="hidden"
+            label="JGLOBAL_FIELD_ID_LABEL"
+            description="JGLOBAL_FIELD_ID_DESC"
+            class="readonly"
+            size="10"
+            default="0"
+            readonly="true"
+        />
+
+        <field
+            name="user_id"
+            type="hidden"
+        />
+
+        <field
+            name="title"
+            type="text"
+            label="JGLOBAL_TITLE"
+            class="input-xxlarge input-large-text"
+            size="40"
+        />
+
+        <field name="currency_id"
+                       type="currencys"
+                       label="COM_PHMONEY_CURRENCY"
+                       default="139"/>
+
+        <field
+            name="description"
+            type="editor"
+            label="JGLOBAL_DESCRIPTION"
+            filter="JComponentHelper::filterText"
+            buttons="true"
+        />
+
+        <field
+            name="user_default"
+            type="list"
+            label="JDEFAULT"
+            default="1"
+            class="custom-select-color-state"
+            size="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+            name="published"
+            type="list"
+            label="JSTATUS"
+            default="1"
+            class="custom-select-color-state"
+            size="1"
+        >
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+
+    </fieldset>
+
+    <fieldset name="import"
+                  label="COM_PHMONEY_IMPORT">
+
+        <field name="import_file"
+                       type="file"
+                       label="COM_PHMONEY_IMPORT_FILE"
+                       description="COM_PHMONEY_IMPORT_FILE_DESC" />
+
+    </fieldset>
+
+    <fields name="params">
+
+        <fieldset name="accounting_period"
+                          label="COM_PHMONEY_ACCOUNTING_PERIOD">
+
+            <field
+                name="relative_start"
+                type="list"
+                label="COM_PHMONEY_START_DATE"
+                default="6"
+                class="custom-select-color-state"
+                size="1"
+            >
+                <option value="0">COM_PHMONEY_USE_ABSOLUTE_DATE</option>
+                <option value="1">COM_PHMONEY_TODAY</option>
+                <option value="2">COM_PHMONEY_START_OF_THIS_MONTH</option>
+                <option value="3">COM_PHMONEY_START_OF_PREVIOUS_MONTH</option>
+                <option value="4">COM_PHMONEY_START_OF_THIS_QUARTER</option>
+                <option value="5">COM_PHMONEY_START_OF_PREVIOUS_QUARTER</option>
+                <option value="6">COM_PHMONEY_START_OF_THIS_YEAR</option>
+                <option value="7">COM_PHMONEY_START_OF_PREVIOUS_YEAR</option>
+            </field>
+
+            <field
+                name="start_date"
+                type="calendar"
+                label="."
+                translateformat="true"
+                showtime="false"
+                size="22"
+                filter="user_utc"
+            />
+
+            <field
+                name="relative_end"
+                type="list"
+                label="COM_PHMONEY_END_DATE"
+                default="6"
+                class="custom-select-color-state"
+                size="1"
+            >
+                <option value="0">COM_PHMONEY_USE_ABSOLUTE_DATE</option>
+                <option value="1">COM_PHMONEY_TODAY</option>
+                <option value="2">COM_PHMONEY_END_OF_THIS_MONTH</option>
+                <option value="3">COM_PHMONEY_END_OF_PREVIOUS_MONTH</option>
+                <option value="4">COM_PHMONEY_END_OF_THIS_QUARTER</option>
+                <option value="5">COM_PHMONEY_END_OF_PREVIOUS_QUARTER</option>
+                <option value="6">COM_PHMONEY_END_OF_THIS_YEAR</option>
+                <option value="7">COM_PHMONEY_END_OF_PREVIOUS_YEAR</option>
+            </field>
+
+            <field
+                name="end_date"
+                type="calendar"
+                label="."
+                translateformat="true"
+                showtime="false"
+                size="22"
+                filter="user_utc"
+            />
+
+        </fieldset>
+
+        <fieldset name="business"
+                          label="COM_PHMONEY_BUSINESS">
+
+            <field
+                name="company_name"
+                type="text"
+                label="JFIELD_NAME_LABEL"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="company_address"
+                type="textarea"
+                label="COM_PHMONEY_ADDRESS"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="company_telephone"
+                type="text"
+                label="COM_PHMONEY_TELEPHONE"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="company_email"
+                type="text"
+                label="JGLOBAL_EMAIL"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="company_website"
+                type="text"
+                label="COM_PHMONEY_WEBSITE"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="company_id"
+                type="text"
+                label="JGLOBAL_FIELD_ID_LABEL"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+        </fieldset>
+                
+        <fieldset name="gnucash"
+                          label="COM_PHMONEY_GNUCASH">
+
+            <field type="spacer" name="gnucashspacer" class="text"
+                           label="COM_PHMONEY_GNUCASH_DATABASE_CONNECTION"
+            />
+                    
+            <field
+                name="gnucash_database_host"
+                type="text"
+                label="COM_PHMONEY_DATABASE_HOST"
+                description="COM_PHMONEY_DATABASE_HOST_DESC"
+                class="input-xxlarge input-large-text"
+                size="40"
+                default="localhost"
+            />
+
+            <field
+                name="gnucash_database_name"
+                type="text"
+                label="COM_PHMONEY_DATABASE_NAME"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+            <field
+                name="gnucash_database_username"
+                type="text"
+                label="COM_PHMONEY_DATABASE_USERNAME"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+            
+            <field
+                name="gnucash_database_password"
+                type="password"
+                label="JGLOBAL_PASSWORD"
+                class="input-xxlarge input-large-text"
+                size="40"
+            />
+
+        </fieldset>
+
+    </fields>
+        
+    <fieldset
+        name="permissions"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC"
+    >
+
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            filter="rules"
+            validate="rules"
+            component="com_phmoney"
+            section="portfolio"
+        />
+
+    </fieldset>
+
+</form>

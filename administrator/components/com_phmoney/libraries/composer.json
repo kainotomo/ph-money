@@ -1,0 +1,16 @@
+{
+    "name": "kainotomo/ph_money",
+    "description": "PH Money Joomla component",
+    "keywords": ["joomla", "cms"],
+    "homepage": "https://www.kainotomo.com",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "KAINOTOMO PH LTD",
+            "email": "info@kainotomo.com"
+        }
+    ],
+    "require": {
+        "scheb/yahoo-finance-api": "v3.*"
+    }
+}

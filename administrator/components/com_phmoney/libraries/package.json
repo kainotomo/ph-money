@@ -1,0 +1,9 @@
+{
+    "name": "ph_money",
+    "homepage": "https://www.kainotomo.com",
+    "description": "PH Money Joomla component",
+    "license": "GPL-2.0+",
+    "dependencies": {
+    "chart.js": "^2.7.2"
+    }
+}

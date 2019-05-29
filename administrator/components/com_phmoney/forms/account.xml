@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+    
+    <fieldset name="details" label="JDETAILS">
+        
+        <field
+            name="id"
+            type="hidden"
+            label="JGLOBAL_FIELD_ID_LABEL"
+            default="0"
+            class="readonly"
+            readonly="true"
+        />
+        
+        <field
+            name="title"
+            type="text"
+            label="JGLOBAL_TITLE"
+            class="input-xxlarge"
+            size="40"
+            required="true"
+        />
+
+        <field name="account_type_id" type="accounttypes" 
+               default="1" label="COM_PHMONEY_ACCOUNT_TYPE_LABEL" 
+               required="true">
+        </field>
+        
+        <field name="currency_id" type="currencys" label="COM_PHMONEY_CURRENCY" default="139"/>
+        
+        <field
+            name="parent_id"
+            class="advancedSelect"
+            type="accountedit"
+            label="COM_CATEGORIES_FIELD_PARENT_LABEL"
+        >
+            <option value="1">JGLOBAL_ROOT_PARENT</option>
+        </field>
+        
+        <field
+            name="tags"
+            type="tag"
+            label="JTAG"
+            class="multipleTags"
+            mode="nested"
+            multiple="true"
+        />
+        
+        <field
+            name="published"
+            type="list"
+            label="JSTATUS"
+            default="1"
+            class="custom-select-color-state"
+            size="1"
+        >
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        
+    </fieldset>
+    
+    <fieldset name="description" label="JGLOBAL_DESCRIPTION">
+    
+        <field
+            name="code"
+            type="text"
+            label="COM_PHMONEY_CODE"
+            size="40"
+            maxlength="255"
+        />
+        
+        <field
+            name="note"
+            type="text"
+            label="COM_CATEGORIES_FIELD_NOTE_LABEL"
+            size="40"
+            maxlength="255"
+        />
+        
+        <field
+            name="alias"
+            type="text"
+            label="JFIELD_ALIAS_LABEL"
+            size="45"
+            hint="JFIELD_ALIAS_PLACEHOLDER"
+        />
+        
+        <field name="portfolio_id" 
+               type="portfolios" 
+               readonly="true"
+               label="COM_PHMONEY_PORTFOLIO" required="true"/>
+        
+        <field
+            name="description"
+            type="editor"
+            label="JGLOBAL_DESCRIPTION"
+            filter="JComponentHelper::filterText"
+            buttons="true"
+            hide="readmore,pagebreak"
+        />
+        
+        <field
+            name="asset_id"
+            type="hidden"
+            filter="unset"
+            label="JFIELD_ASSET_ID_LABEL"
+        />
+
+        <field
+            name="lft"
+            type="hidden"
+            filter="unset"
+        />
+
+        <field
+            name="rgt"
+            type="hidden"
+            filter="unset"
+        />
+
+        <field
+            name="level"
+            type="hidden"
+            filter="unset"
+        />
+
+        <field
+            name="path"
+            type="hidden"
+            label="COM_CATEGORIES_PATH_LABEL"
+            class="readonly"
+            size="40"
+            readonly="true"
+        />
+
+        <field
+            name="checked_out"
+            type="hidden"
+            filter="unset"
+        />
+
+        <field
+            name="checked_out_time"
+            type="hidden"
+            filter="unset"
+        />
+        
+    </fieldset>
+    
+    <fields name="params">
+
+        <fieldset name="general" label="COM_PHMONEY_GENERAL">
+            
+            <field name="address"
+                   label="COM_PHMONEY_ADDRESS"
+                   type="textarea"
+            />
+        
+            <field name="country"
+                   label="COM_PHMONEY_COUNTRY"
+                   type="text"
+            />
+            
+        </fieldset>
+        
+        <fieldset name="shares" label="COM_PHMONEY_SHARES">
+            
+            <field name="isin"
+                   label="ISIN"
+                   type="text"
+            />
+            
+            <field name="investment_horizon"
+                   label="COM_PHMONEY_INVESTMENT_HORIZON"
+                   type="text"
+                   default="5"
+            />
+            
+            <field name="margin"
+                   label="com_phmoney_margin"
+                   type="text"
+                   default="20"
+            />
+            
+            <field name="eps_trailing"
+                   label="com_phmoney_eps_trailing"
+                   type="text"
+            />
+            
+            <field name="dividend_trailing_rate"
+                   label="com_phmoney_dividend_trailing_rate"
+                   type="hidden"
+            />
+            
+            <field name="eps_forward"
+                   label="com_phmoney_eps_forward"
+                   type="text"
+            />
+            
+            <field name="pe_trailing"
+                   label="com_phmoney_pe_trailing"
+                   type="text"
+            />
+            
+            <field name="pe_forward"
+                   label="com_phmoney_pe_forward"
+                   type="text"
+            />
+            
+            <field name="dividend_trailing"
+                   label="com_phmoney_dividend_trailing"
+                   type="text"
+            />
+            
+            <field name="price"
+                   label="COM_PHMONEY_CURRENT_PRICE"
+                   type="text"
+            />
+            
+            <field name="intrinsic_value"
+                   label="COM_PHMONEY_intrinsic_value"
+                   readonly="true"
+                   type="text"
+            />
+            
+            <field name="estimated_signal_value"
+                   label="com_phmoney_estimated_signal_value"
+                   readonly="true"
+                   type="text"
+            />
+            
+            <field name="estimated_margin_of_safety"
+                   label="com_phmoney_estimated_margin_of_safety"
+                   readonly="true"
+                   type="text"
+            />
+            
+            <field name="signal"
+                   label="COM_PHMONEY_SIGNAL"
+                   readonly="true"
+                   type="text"
+            />
+        
+        </fieldset>
+    
+    </fields>
+    
+</form>

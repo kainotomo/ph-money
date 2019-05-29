@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field" >
+    
+    <fieldset name="splits" label="COM_PHMONEY_SPLITS" addfieldpath="/administrator/components/com_categories/models/fields" >
+        
+        <field type="text" name="portfolio_currency_name" label="COM_PHMONEY_PORTFOLIO_CURRENCY" 
+               readonly="true"/>
+        
+        <field 
+            name="portfolio_currency_id" 
+            type="hidden" 
+        />
+        
+        <field 
+            name="portfolio_currency_denom" 
+            type="hidden" 
+        />
+        
+        <field 
+            name="title" 
+            type="text" 
+            label="JGLOBAL_TITLE"
+            class="input-xxlarge input-large-text"   
+            size="40"
+        />
+        
+        <field 
+            name="post_date" 
+            type="calendar" 
+            label="COM_PHMONEY_POST_DATE"
+            translateformat="true"
+            showtime="true"
+            size="22"
+            filter="user_utc" 
+        />
+        
+        <field name="splits" type="subform"
+               formsource="/administrator/components/com_phmoney\forms\split.xml" 
+               multiple="true"
+               required="true"
+               label="COM_PHMONEY_SPLITS"
+               buttons="add,remove"
+               layout="joomla.form.field.subform.repeatable"
+        />
+        
+    </fieldset>
+    
+    <fieldset name="description" label="JGLOBAL_DESCRIPTION" addfieldpath="/administrator/components/com_categories/models/fields" >
+        
+        <field 
+            name="id" 
+            type="hidden" 
+            label="JGLOBAL_FIELD_ID_LABEL"
+            description="JGLOBAL_FIELD_ID_DESC" 
+            class="readonly" 
+            size="10" 
+            default="0"
+            readonly="true" 
+        />
+        
+        <field 
+            name="portfolio_id" 
+            type="hidden" 
+        />
+        
+        <field 
+            name="num" 
+            type="text" 
+            label="COM_PHMONEY_NUM"
+            class="input-xxlarge input-large-text"
+            size="40"
+        />
+        
+        <field 
+            name="version_note" 
+            type="text" 
+            label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+            maxlength="255"
+            size="45"
+        />
+        
+        <field
+            name="version" 
+            type="text" 
+            label="JVERSION" 
+            size="6" 
+            class="readonly"
+            readonly="true" 
+            filter="unset" 
+        />
+        
+        <field 
+            name="description" 
+            type="editor"
+            label="JGLOBAL_DESCRIPTION" 
+            filter="JComponentHelper::filterText"
+            buttons="true" 
+        />
+        
+    </fieldset>
+    
+    <fieldset name="params" label="JFIELD_PARAMS_LABEL">
+        
+        <field 
+            name="state" 
+            type="list" 
+            label="JSTATUS"
+            class="custom-select-color-state"
+            filter="intval" 
+            size="1" 
+            default="1"
+        >
+            <option value="1">JENABLED</option>
+            <option value="0">JDISABLED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        
+        <field
+            name="modified_date" 
+            type="calendar" 
+            label="JGLOBAL_FIELD_MODIFIED_LABEL" 
+            class="form-control"
+            translateformat="true"
+            showtime="true"
+            size="22"
+            readonly="true"
+            filter="user_utc" 
+        />
+        
+    </fieldset>
+    
+</form>

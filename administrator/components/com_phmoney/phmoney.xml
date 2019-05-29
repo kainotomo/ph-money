@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<extension type="component" version="4.0" method="upgrade" >
+    
+    <name>com_phmoney</name>
+    <author>KAINOTOMO PH LTD</author>
+    <creationDate>14-Apr-2019</creationDate>
+    <copyright>KAINOTOMO PH LTD - All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>info@kainotomo.com</authorEmail>
+    <authorUrl>https://www.kainotomo.com</authorUrl>
+    <version>0.2.13</version>
+    <description>Money Management Component</description>
+    <namespace>Joomla\Component\Phmoney</namespace>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <install> 
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> 
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update> 
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+    
+    <files folder="site">
+        <folder>Controller</folder>
+        <folder>Model</folder>
+        <folder>Service</folder>
+        <folder>View</folder>
+        <folder>tmpl</folder>
+    </files>
+    
+    <languages folder="language/site">
+        <language tag="en-GB">en-GB.com_phmoney.ini</language>
+    </languages>
+    
+    <media destination="com_phmoney" folder="media">
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
+    
+    <administration>
+        <menu img="../media/com_phmoney/images/ph-16x16.png">COM_PHMONEY_MENU</menu>
+        <files folder="admin">
+            <filename>CHANGELOG</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>gpl-3.0.txt</filename>
+            <folder>Controller</folder>
+            <folder>Extension</folder>
+            <folder>Field</folder>
+            <folder>Helper</folder>
+            <folder>Model</folder>
+            <folder>Service</folder>
+            <folder>Table</folder>
+            <folder>View</folder>
+            <folder>forms</folder>
+            <folder>helpers</folder>
+            <folder>layouts</folder>
+            <folder>libraries</folder>
+            <folder>services</folder>
+            <folder>sql</folder>
+            <folder>tmpl</folder>
+        </files>
+        <languages folder="language/admin">
+            <language tag="en-GB">en-GB.com_phmoney.ini</language>
+            <language tag="en-GB">en-GB.com_phmoney.sys.ini</language>
+        </languages>
+    </administration>
+    
+</extension>

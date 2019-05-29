@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+
+    <fields name="filter">
+        
+        <fieldset name="reporting" label="COM_PHMONEY_REPORTING">
+            
+            <field
+                name="report_type"
+                type="list"
+                label="JGLOBAL_CATEGORY_LAYOUT_DESC"
+                default="balances"
+                onchange="this.form.submit();"
+                size="0"
+            >
+                <option value="balances">COM_PHMONEY_BALANCES</option>
+                <option value="shares_portfolio">COM_PHMONEY_PORTFOLIO</option>
+                <option value="tree">COM_PHMONEY_TREE_VIEW</option>
+                <option value="balance_sheet">COM_PHMONEY_BALANCE_SHEET</option>
+                <option value="income_statement">COM_PHMONEY_INCOME_STATEMENT</option>
+                <option value="cash_flow">COM_PHMONEY_CASH_FLOW</option>                                
+                <option value="accounts_pie_chart">COM_PHMONEY_ACCOUNTS_PIE_CHART</option>
+                <option value="accounts_bar_chart">COM_PHMONEY_ACCOUNTS_BAR_CHART</option>
+                <option value="accounts_bar_chart_cumulative">COM_PHMONEY_ACCOUNTS_BAR_CHART_CUMULATIVE</option>
+                <option value="type_balance">COM_PHMONEY_TYPE_BALANCE</option>
+                <option value="type_pie_chart">COM_PHMONEY_TYPE_PIE_CHART</option>
+                <option value="tags_balance">COM_PHMONEY_TAGS_BALANCE</option>
+                <option value="tags_pie_chart">COM_PHMONEY_TAGS_PIE_CHART</option>
+                <option value="tags_bar_chart">COM_PHMONEY_TAGS_BAR_CHART</option>
+                <option value="tags_bar_chart_cumulative">COM_PHMONEY_TAGS_BAR_CHART_CUMULATIVE</option>                
+                <option value="shares_signals">COM_PHMONEY_SIGNALS</option>
+            </field>
+            
+            <field
+                name="title"
+                type="text"
+                label="JGLOBAL_TITLE"
+                hint="COM_PHMONEY_REPORT_TITLE"
+            />
+        
+            <field
+                name="relative_start"
+                type="list"
+                label="COM_PHMONEY_START_DATE"
+                default="8"
+                size="1"
+            >
+                <option value="8">COM_PHMONEY_SELECT_START_DATE</option>
+                <option value="0">COM_PHMONEY_USE_ABSOLUTE_DATE</option>
+                <option value="1">COM_PHMONEY_TODAY</option>
+                <option value="2">COM_PHMONEY_START_OF_THIS_MONTH</option>
+                <option value="3">COM_PHMONEY_START_OF_PREVIOUS_MONTH</option>
+                <option value="4">COM_PHMONEY_START_OF_THIS_QUARTER</option>
+                <option value="5">COM_PHMONEY_START_OF_PREVIOUS_QUARTER</option>
+                <option value="6">COM_PHMONEY_START_OF_THIS_YEAR</option>
+                <option value="7">COM_PHMONEY_START_OF_PREVIOUS_YEAR</option>                
+            </field>
+    
+            <field 
+                name="start_date" 
+                type="calendar" 
+                label="."
+                translateformat="true"
+                showtime="false"
+                size="22"
+                filter="user_utc" 
+            />
+            
+            <field
+                name="relative_end"
+                type="list"
+                label="COM_PHMONEY_END_DATE"
+                default="8"
+                size="1"
+            >
+                <option value="8">COM_PHMONEY_SELECT_END_DATE</option>
+                <option value="0">COM_PHMONEY_USE_ABSOLUTE_DATE</option>
+                <option value="1">COM_PHMONEY_TODAY</option>
+                <option value="2">COM_PHMONEY_END_OF_THIS_MONTH</option>
+                <option value="3">COM_PHMONEY_END_OF_PREVIOUS_MONTH</option>
+                <option value="4">COM_PHMONEY_END_OF_THIS_QUARTER</option>
+                <option value="5">COM_PHMONEY_END_OF_PREVIOUS_QUARTER</option>
+                <option value="6">COM_PHMONEY_END_OF_THIS_YEAR</option>
+                <option value="7">COM_PHMONEY_END_OF_PREVIOUS_YEAR</option>                
+            </field>
+            
+            <field 
+                name="end_date" 
+                type="calendar" 
+                label="."
+                translateformat="true"
+                showtime="false"
+                size="22"
+                filter="user_utc" 
+            />
+            
+            <field
+                name="date_interval"
+                type="list"
+                label="COM_PHMONEY_STEP_SIZE"
+                description="COM_PHMONEY_STEP_SIZE_DESC"
+                default="month"
+                size="0"
+            >
+                <option value="day">JDAY</option>
+                <option value="week">COM_PHMONEY_WEEK</option>
+                <option value="month">JMONTH</option>
+                <option value="year">JYEAR</option>
+            </field>
+            
+            <field
+                name="show_zero_accounts"
+                type="radio"
+                label="COM_PHMONEY_SHOW_ZERO_ACCOUNTS"
+                description="COM_PHMONEY_SHOW_ZERO_ACCOUNTS_DESC"
+                default="0"
+                class="switcher"
+                filter="integer"
+                onchange="this.form.submit();"
+            >
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+            </field>
+            
+            <field name="report_file"
+                   type="file"
+                   label="COM_PHMONEY_REPORT_FILE"
+                   description="COM_PHMONEY_REPORT_FILE_DESC" 
+                   onchange="Joomla.submitbutton('accounts.open_report');"
+            />
+        
+        </fieldset>
+        
+        <fieldset name="filter" label="COM_PHMONEY_FILTER">
+            
+            <field name="portfolio" 
+                   type="portfolios" 
+                   label="COM_PHMONEY_PORTFOLIO"
+                   onchange="this.form.submit();">
+            </field>
+        
+            <field name="currency" 
+                   type="currencys" label="COM_PHMONEY_CURRENCY" 
+                   onchange="this.form.submit();">
+                <option value="">COM_PHMONEY_SELECT_CURRENCY</option>
+            </field>
+        
+            <field name="account_type" type="accounttypes" 
+                   default="" label="COM_PHMONEY_ACCOUNT_TYPE_LABEL" 
+                   multiple="true"
+                   class="advancedSelect">
+            </field>
+            
+            <field 
+                name="account"
+                type="accountedit"
+                label="COM_PHMONEY_ACCOUNT"
+                multiple="true"
+                hint="COM_PHMONEY_SELECT_ACCOUNT"
+            />
+
+            <field
+                name="published"
+                label="JSTATUS"
+                type="status"
+                onchange="this.form.submit();"
+            >
+                <option value="">JOPTION_SELECT_PUBLISHED</option>
+            </field>
+
+            <field
+                name="level"
+                type="integer"
+                label="COM_PHMONEY_LEVEL"
+                first="1"
+                last="10"
+                step="1"
+                languages="*"
+                onchange="this.form.submit();"
+            >
+                <option value="">JOPTION_SELECT_MAX_LEVELS</option>
+            </field>
+        
+            <field
+                name="tag"
+                type="tag"
+                label="JTAG"
+                multiple="true"
+                class="multipleTags"
+                mode="nested"
+            />
+        
+            <field
+                name="search"
+                type="text"
+                label="JSEARCH_FILTER"
+                hint="JSEARCH_FILTER"
+            />
+        
+        </fieldset>
+                
+    </fields>
+
+    <fields name="list">
+        
+        <fieldset name="list" label="JGLOBAL_LIST">
+            
+            <field
+                name="fullordering"
+                type="list"
+                label="JFIELD_ORDERING_LABEL"
+                default="a.lft ASC"
+                statuses="*,0,1,2,-2"
+                onchange="this.form.submit();"
+            >
+                <option value="">JGLOBAL_SORT_BY</option>
+                <option value="a.lft ASC">JGRID_HEADING_ORDERING_ASC</option>
+                <option value="a.rgt DESC">JGRID_HEADING_ORDERING_DESC</option>
+            </field>
+
+            <field
+                name="limit"
+                type="limitbox"
+                label="JGLOBAL_PAGINATION_LABEL"
+                default="25"
+                onchange="this.form.submit();"
+            />
+        
+        </fieldset>        
+        
+    </fields>
+    
+</form>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+-->
+
+<config>
+    
+    <fieldset
+        name="phmoney"
+        label="COM_PHMONEY_FIELDSET_CONFIG_TRANSACTION_OPTIONS_LABEL"
+    >
+
+        <field
+            name="sef_ids"
+            type="radio"
+            class="switcher"
+            default="0"
+            label="JGLOBAL_SEF_NOIDS_LABEL"
+            filter="integer"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+                
+        <field
+            name="save_history"
+            type="radio"
+            class="switcher"
+            label="JGLOBAL_SAVE_HISTORY_OPTIONS_LABEL"
+            default="0"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+
+        <field
+            name="history_limit"
+            type="number"
+            label="JGLOBAL_HISTORY_LIMIT_OPTIONS_LABEL"
+            filter="integer"
+            default="10"
+            showon="save_history:1"
+        />
+        
+    </fieldset>
+    
+    <fieldset 
+        name="liveupdate"
+        label="COM_SPCYEND_LIVEUPDATE_LABEL"
+        description="COM_SPCYEND_LIVEUPDATE_DESC"
+    >
+        <field name="downloadid" type="text" default="" size="30"
+               label="COM_SPCYEND_DOWNLOADID_LABEL"
+               description ="COM_SPCYEND_DOWNLOADID_DESC" />
+    </fieldset>  
+    
+    <fieldset
+        name="permissions"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC"
+    >
+
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            validate="rules"
+            filter="rules"
+            component="com_phmoney"
+            section="component"
+        />
+    </fieldset>
+</config>

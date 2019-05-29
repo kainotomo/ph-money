@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+
+    <fields name="batch">
+        <fieldset name="batch" label="COM_PHMONEY_BATCH">
+            
+            <field 
+                name="account_source"
+                type="accountedit"
+                class="advancedSelect"
+                label="COM_PHMONEY_ACCOUNT"
+                multiple="true"
+                hint="COM_PHMONEY_SELECT_ACCOUNT"
+            />
+        
+            <input type="hidden" name="form_submited" value="1"/>
+            
+            <field 
+                name="batch_post_date" 
+                type="calendar" 
+                label="JDATE"
+                translateformat="true"
+                showtime="true"
+                size="22"
+                filter="user_utc" 
+            />
+            
+            <field
+                name="action_batch"
+                type="list"
+                label="COM_PHMONEY_ACTION_BATCH"
+                default="0"
+                showtime="true"
+            >
+                <option value="0">COM_PHMONEY_MOVE</option>
+                <option value="1">COM_PHMONEY_COPY</option>
+            </field>
+            
+        </fieldset>
+        
+    </fields>
+
+</form>

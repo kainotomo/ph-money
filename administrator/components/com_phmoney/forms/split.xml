@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<form>
+    
+    <field 
+        name="account_id"
+        type="accountedit"
+        class="advancedSelect"
+        label="COM_PHMONEY_ACCOUNT"
+        required="true"
+        onchange="PHMONEY.calculate_rate(this);"
+        default=""
+    />
+    
+    <field name="value" type="number" 
+           default="0" 
+           label="COM_PHMONEY_VALUE" 
+           description="COM_PHMONEY_VALUE_DESC"
+           required="true" />
+    
+    <field 
+        name="rate"
+        type="number"
+        default="1"
+        label="COM_PHMONEY_RATE"
+        description="COM_PHMONEY_RATE_DESC"
+    />
+    
+    <field name="shares" type="number" 
+           default="0" 
+           label="COM_PHMONEY_SHARES" 
+           description="COM_PHMONEY_SHARES_DESC"/>
+    
+    <field name="split_type_id" type="splittypes" 
+           default="1" label="COM_PHMONEY_SPLIT_TYPE_LABEL" 
+           required="true">
+    </field>
+    
+    <field
+        name="reconcile_state"
+        type="radio"
+        label="COM_PHMONEY_RECONCILED"
+        default="0"
+        class="switcher"
+        filter="integer"
+    >
+        <option value="0">JNO</option>
+        <option value="1">JYES</option>
+    </field>
+    
+    <field 
+        name="description" 
+        type="text" 
+        label="JFIELD_NOTE_LABEL"
+        class="input-xxlarge input-large-text"
+        size="40"
+    />
+    
+    <field 
+        name="id" 
+        type="hidden" 
+    />
+    
+    <field 
+        name="currency_id" 
+        type="hidden" 
+    />
+    
+    <field 
+        name="currency_name" 
+        type="hidden" 
+    />
+    
+    <field 
+        name="currency_denom" 
+        type="hidden" 
+    />
+    
+    <field
+        name="version" 
+        type="hidden" 
+        label="JVERSION" 
+        size="6" 
+        class="readonly"
+        readonly="true" 
+        filter="unset" 
+    />
+    
+</form>

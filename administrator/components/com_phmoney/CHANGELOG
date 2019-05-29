@@ -1,0 +1,11 @@
+SPRS
+----
+Lines starting with # (hash) indicate bug fixes
+Lines starting with + (plus) indicate added features
+Lines starting with - (dash) indicate removed features
+Lines starting with ~ (tilde) indicate miscellaneous changes
+All other lines are comments and/or notes
+
+(8/11/2017) 1.0.0.0
+~ Initial release
+

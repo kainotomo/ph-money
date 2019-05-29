@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="library" version="4.0" minimun_version="4.0" maximun_version="4.0" method="upgrade" >
+    <name>KAINOTOMO Libraries</name>
+    <libraryname>kainotomo</libraryname>
+    <creationDate>15-Jan-2019</creationDate>
+    <author>KAINOTOMO PH LTD</author>
+    <authorEmail>info@kainotomo.com</authorEmail>
+    <authorUrl>https://www.kainotomo.com</authorUrl>
+    <copyright>KAINOTOMO PH LTD - All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <!--  The version string is recorded in the components table -->
+    <version>4.0.0</version>   
+    <description>KAINOTOMO PH LTD Libraries</description>
+
+    <files folder="libraries">
+        <folder>utilities</folder>
+        <folder>database</folder>
+    </files>
+    
+    <media destination="kainotomo" folder="media">
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+        <folder>swf</folder>
+        <folder>various</folder>
+    </media>
+    
+    <languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.lib_kainotomo.ini</language>
+    </languages>
+    
+</extension>

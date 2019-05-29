@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2018 KAINOTOMO PH LTD <info@kainotomo.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<form addfieldprefix="Joomla\Component\Phmoney\Administrator\Field">
+    <fields name="filter">
+                
+        <field name="portfolio" 
+               type="portfolios" 
+               label="COM_PHMONEY_PORTFOLIO"
+               onchange="this.form.submit();">
+        </field>
+        
+        <field 
+                name="account"
+                type="accountedit"
+                class="advancedSelect"
+                label="COM_PHMONEY_ACCOUNT"
+                multiple="true"
+                onchange="this.form.submit();"
+                hint="COM_PHMONEY_SELECT_ACCOUNT"
+            />
+        
+        <field
+            name="search"
+            type="text"
+            label="COM_CONTENT_FILTER_SEARCH_LABEL"
+            description="COM_CONTENT_FILTER_SEARCH_DESC"
+            hint="JSEARCH_FILTER"
+        />
+        
+        <input type="hidden" name="form_submited" value="1"/>
+    </fields>
+
+    <fields name="list">
+        <field
+            name="fullordering"
+            type="list"
+            label="COM_CONTENT_LIST_FULL_ORDERING"
+            description="COM_CONTENT_LIST_FULL_ORDERING_DESC"
+            onchange="this.form.submit();"
+            default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.created ASC">JDATE_ASC</option>
+            <option value="a.created DESC">JDATE_DESC</option>
+            <option value="ac.title ASC">COM_PHMONEY_ACCOUNT_ASC</option>
+            <option value="ac.title DESC">COM_PHMONEY_ACCOUNT_DESC</option>
+            <option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
+            <option value="a.id DESC">JGRID_HEADING_ID_DESC</option>
+        </field>
+
+        <field
+            name="limit"
+            type="limitbox"
+            label="COM_CONTENT_LIST_LIMIT"
+            description="COM_CONTENT_LIST_LIMIT_DESC"
+            class="input-mini"
+            default="25"
+            onchange="this.form.submit();"
+        />
+    </fields>
+</form>
