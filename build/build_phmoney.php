@@ -161,7 +161,7 @@ $repo = dirname(__DIR__);
 $here = __DIR__;
 
 // Set paths for the build packages
-$tmp      = $here . '/tmp';
+$tmp      = $here . '/phmoney-pkg';
 $fullpath = $tmp . '/' . $time;
 
 // Parse input options
@@ -187,7 +187,7 @@ if (!$remote)
 	$remote = 'tags/' . $tagVersion;
 	chdir($here);
 }
-
+echo $remote;die;
 echo "Start build for remote $remote.\n";
 echo "Delete old release folder.\n";
 system('rm -rf ' . $tmp);
