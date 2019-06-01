@@ -242,6 +242,9 @@ switch ($step)
 
         // And cleanup the Node installation
         system('rm -rf node_modules');
+        
+        // And cleanup the NetBeans folder
+        system('rm -rf nbproject');
 
         // Also cleanup the Node installation of the media manager
         system('rm -rf administrator/components/com_media/node_modules');
