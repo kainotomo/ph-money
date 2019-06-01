@@ -106,3 +106,5 @@ RoboFile.ini
 /nbproject/private/
 /administrator/components/com_phmoney/libraries/vendor/
 /build/phmoney-pkg/
+!administrator/manifests/packages/pkg_phmoney.xml
+!administrator/manifests/packages/pkg_phmoney_free.xml

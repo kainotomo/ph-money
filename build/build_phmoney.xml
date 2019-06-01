@@ -34,11 +34,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <property name="destdir" value="${basedir}/build/tmp"/>
     
-    <target name="build" description="Create an installable package for the ${name} project" >
-        
-        <antcall target="fix_version_date"/>
-        <antcall target="clean"></antcall>
-        <antcall target="build_joomla"></antcall>
+    <target name="build" description="Create all needed packages for a release" >
+        <antcall target="clean"/>        
+        <antcall target="build_joomla"/>
+        <antcall target="build_extension"/>
+    </target>
+    
+    <target name="build_extension" description="Create an installable package for the ${name} project" >  
+        <antcall target="fix_version_date"/>      
         <antcall target="component">
             <param name="cmp_name" value="phmoney"/>                         
         </antcall>
@@ -46,7 +49,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <param name="name" value="kainotomo"/>   
         </antcall>
         <antcall target="package"></antcall>
-        
+    </target>
+    
+    <target name="build_joomla" description="Create Joomla installation packages packages">
+        <property name="build_path"
+          location="./build"/>
+        <echo message="----------------------------------------------"/>
+        <echo message="Running build_phmoney_1.cmd"/>
+        <echo message="----------------------------------------------"/>
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="${build_path}/build_phmoney_1.cmd ${version}"/>
+            <arg value="-p"/>
+        </exec>
+        <echo message="----------------------------------------------"/>
+        <echo message="Running build_phmoney_2.cmd"/>
+        <echo message="----------------------------------------------"/>
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="${build_path}/build_phmoney_2.cmd"/>
+            <arg value="-p"/>
+        </exec>
+        <echo message="----------------------------------------------"/>
+        <echo message="Running build_phmoney_3.cmd"/>
+        <echo message="----------------------------------------------"/>
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="${build_path}/build_phmoney_3.cmd"/>
+            <arg value="-p"/>
+        </exec>
+        <echo message="----------------------------------------------"/>
+        <echo message="Running build_phmoney_4.cmd"/>
+        <echo message="----------------------------------------------"/>
+        <exec executable="cmd">
+            <arg value="/c"/>
+            <arg value="${build_path}/build_phmoney_4.cmd  ${version}"/>
+            <arg value="-p"/>
+        </exec>
     </target>
   
     <target name="initialize" description="Delete build folder" >
@@ -92,9 +131,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <target name="clean" description="Delete destination folder" >
         
-        <echo message="Clean directory" />
-        <delete dir="${destdir}/packages/${version}" includeemptydirs="true" failonerror="false" />
-        <delete dir="${destdir}/staging_pkg" includeemptydirs="true" failonerror="false" />
+        <echo message="Clean ${destdir} directory" />
+        <delete dir="${destdir}" includeemptydirs="true" failonerror="false" />
         
     </target>
     
@@ -159,7 +197,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <echo message="Create installation packages." />
         <property name="pack_dir" value="${destdir}/packages/extension"/>
         <property name="tmp_dir" value="${pack_dir}/zip"/>
-        <property name="xml_dir" value="${basedir}/build/${name}-xml"/>
         
         <echo message="Create tmp directory." />
         <mkdir dir="${tmp_dir}"/>
@@ -174,7 +211,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <echo message="Create package file." />
         <copy file="${basedir}/administrator/manifests/packages/pkg_${name}.xml" todir="${tmp_dir}" verbose="${verbose}"/>
         <zip destfile="${pack_dir}/pkg_${name}_${version}_j${jversion}.zip" basedir="${tmp_dir}"/>
-        <copy file="${basedir}/administrator/manifests/packages/pkg_${name}.xml" tofile="${xml_dir}/pkg_${name}.xml" verbose="${verbose}"/>
         <copy file="${basedir}/administrator/manifests/packages/pkg_${name}.xml" tofile="${pack_dir}/pkg_${name}_${version}_j${jversion}.zip.xml" verbose="${verbose}"/>
         
         <!-- Free Version -->
@@ -182,50 +218,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <delete file="${tmp_dir}/pkg_${name}.xml" verbose="${verbose}"/>
         <copy file="${basedir}/administrator/manifests/packages/pkg_${name}_free.xml" todir="${tmp_dir}" verbose="${verbose}"/>
         <zip destfile="${pack_dir}/pkg_${name}_free_${version}_j${jversion}.zip" basedir="${tmp_dir}"/>
-        <copy file="${basedir}/administrator/manifests/packages/pkg_${name}_free.xml" tofile="${xml_dir}/pkg_${name}_free.xml" verbose="${verbose}"/>
         <copy file="${basedir}/administrator/manifests/packages/pkg_${name}_free.xml" tofile="${pack_dir}/pkg_${name}_free_${version}_j${jversion}.zip.xml" verbose="${verbose}"/>
         
         <echo message="Delete tmp directory." />
         <delete dir="${tmp_dir}" verbose="${verbose}"/>
     </target>
     
-    <target name="build_joomla">
-        <property name="build_path"
-          location="./build"/>
-        <echo message="----------------------------------------------"/>
-        <echo message="Running build_phmoney_1.cmd"/>
-        <echo message="----------------------------------------------"/>
-        <exec executable="cmd">
-            <arg value="/c"/>
-            <arg value="${build_path}/build_phmoney_1.cmd"/>
-            <arg value="-p"/>
-        </exec>
-        <echo message="----------------------------------------------"/>
-        <echo message="Running build_phmoney_2.cmd"/>
-        <echo message="----------------------------------------------"/>
-        <exec executable="cmd">
-            <arg value="/c"/>
-            <arg value="${build_path}/build_phmoney_2.cmd"/>
-            <arg value="-p"/>
-        </exec>
-        <echo message="----------------------------------------------"/>
-        <echo message="Running build_phmoney_3.cmd"/>
-        <echo message="----------------------------------------------"/>
-        <exec executable="cmd">
-            <arg value="/c"/>
-            <arg value="${build_path}/build_phmoney_3.cmd"/>
-            <arg value="-p"/>
-        </exec>
-        <echo message="----------------------------------------------"/>
-        <echo message="Running build_phmoney_4.cmd"/>
-        <echo message="----------------------------------------------"/>
-        <exec executable="cmd">
-            <arg value="/c"/>
-            <arg value="${build_path}/build_phmoney_4.cmd"/>
-            <arg value="-p"/>
-        </exec>
-    </target>
-
     <target name="publish" description="Upload package files to kainotomo server.">
         
         <echo message="Uploading package files to server."/>
