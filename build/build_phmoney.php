@@ -188,6 +188,7 @@ if (!$remote)
 switch ($step)
 {
     case '1':
+        
         echo "Start build for remote $remote.\n";
         echo "Delete old release folder.\n";
         system('rm -rf ' . $tmp);
@@ -210,6 +211,7 @@ switch ($step)
         break;
     
     case '2':
+        
         /*
         // Install NPM dependencies and compile required media assets, skip Composer autoloader until post-cleanup
         system('npm install --unsafe-perm', $npmReturnCode);
@@ -230,6 +232,8 @@ switch ($step)
         }
          * 
          */
+        
+        chdir($fullpath);
 
         // Clean the checkout of extra resources
         clean_checkout($fullpath);
