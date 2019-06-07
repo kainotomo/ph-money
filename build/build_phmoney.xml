@@ -19,17 +19,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 <project name="phmoney" default="build" basedir="../">
     
-    <property name="old_version" value="0.3.1"/>
+    <property name="old_version" value="0.3.2"/>
     <property name="old_jversion" value="4.0"/>
     <property name="old_lib_version" value="4.0.0"/>
-    <property name="old_cdate" value="30-May-2019"/>
+    <property name="old_cdate" value="01-Jun-2019"/>
     <property name="old_lib_cdate" value="15-Jan-2019"/>
     
     <property name="name" value="phmoney"/>
-    <property name="version" value="0.3.2"/>
+    <property name="version" value="0.3.3"/>
     <property name="lib_version" value="4.0.0"/>
     <property name="jversion" value="4.0"/>
-    <property name="cdate" value="01-Jun-2019"/>
+    <property name="cdate" value="07-Jun-2019"/>
     <property name="lib_cdate" value="15-Jan-2019"/>
     
     <property name="destdir" value="${basedir}/build/tmp"/>

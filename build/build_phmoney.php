@@ -460,21 +460,21 @@ switch ($step)
                 // Create the diff archive packages using the file name list.
                 if (!$excludeBzip2)
                 {
-                        $packageName = 'phmoney_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.tar.bz2';
+                        $packageName = 'Joomla_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.tar.bz2';
                         system('tar --create --bzip2 --no-recursion --directory ' . $time . ' --file packages/' . $packageName . ' --files-from diffconvert/' . $version . '.' . $num . '> /dev/null');
                         $checksums[$packageName] = array();
                 }
 
                 if (!$excludeGzip)
                 {
-                        $packageName = 'phmoney_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.tar.gz';
+                        $packageName = 'Joomla_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.tar.gz';
                         system('tar --create --gzip  --no-recursion --directory ' . $time . ' --file packages/' . $packageName . ' --files-from diffconvert/' . $version . '.' . $num . '> /dev/null');
                         $checksums[$packageName] = array();
                 }
 
                 if (!$excludeZip)
                 {
-                        $packageName = 'phmoney_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.zip';
+                        $packageName = 'Joomla_' . $version . '.' . $fromName . '_to_' . $fullVersion . '-' . $packageStability . '-Patch_Package.zip';
                         chdir($time);
                         system('zip ../packages/' . $packageName . ' -@ < ../diffconvert/' . $version . '.' . $num . '> /dev/null');
                         chdir('..');
@@ -488,21 +488,21 @@ switch ($step)
         // Create full archive packages.
         if (!$excludeBzip2)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Full_Package.tar.bz2';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Full_Package.tar.bz2';
                 system('tar --create --bzip2 --file ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }
 
         if (!$excludeGzip)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Full_Package.tar.gz';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Full_Package.tar.gz';
                 system('tar --create --gzip --file ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }
 
         if (!$excludeZip)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Full_Package.zip';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Full_Package.zip';
                 system('zip -r ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }
@@ -519,21 +519,21 @@ switch ($step)
 
         if (!$excludeBzip2)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Update_Package.tar.bz2';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Update_Package.tar.bz2';
                 system('tar --create --bzip2 --file ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }
 
         if (!$excludeGzip)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Update_Package.tar.gz';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Update_Package.tar.gz';
                 system('tar --create --gzip --file ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }
 
         if (!$excludeZip)
         {
-                $packageName = 'phmoney_' . $fullVersion . '-' . $packageStability . '-Update_Package.zip';
+                $packageName = 'Joomla_' . $fullVersion . '-' . $packageStability . '-Update_Package.zip';
                 system('zip -r ../packages/' . $packageName . ' * > /dev/null');
                 $checksums[$packageName] = array();
         }

@@ -21,12 +21,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <name>com_phmoney</name>
     <author>KAINOTOMO PH LTD</author>
-    <creationDate>01-Jun-2019</creationDate>
+    <creationDate>07-Jun-2019</creationDate>
     <copyright>KAINOTOMO PH LTD - All rights reserved.</copyright>
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>info@kainotomo.com</authorEmail>
     <authorUrl>https://www.kainotomo.com</authorUrl>
-    <version>0.3.2</version>
+    <version>0.3.3</version>
     <description>Money Management Component</description>
     <namespace>Joomla\Component\Phmoney</namespace>
     
