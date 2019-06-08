@@ -713,7 +713,8 @@ INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, 
 (0, 'cassiopeia', 'template', 'cassiopeia', '', 0, 1, 1, 0, '', '{"logoFile":"","fluidContainer":"0","sidebarLeftWidth":"3","sidebarRightWidth":"3"}', 0, '0000-00-00 00:00:00', 0, 0),
 (0, 'files_joomla', 'file', 'joomla', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (0, 'English (en-GB) Language Pack', 'package', 'pkg_en-GB', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(0, 'PH Money Package', 'package', 'pkg_phmoney', '', '', 0, 1, 1, 0, '{"name":"PH Money Package","type":"package","creationDate":"14-Apr-2019","author":"KAINOTOMO PH LTD","copyright":"KAINOTOMO PH LTD - All rights reserved.","authorEmail":"info@kainotomo.com","authorUrl":"https:\\/\\/www.kainotomo.com","version":"0.2.13","description":"PH Money Package","group":"","filename":"pkg_phmoney"}', '{}', 0, '0000-00-00 00:00:00', 0, 0);
+(0, 'com_phmoney', 'component', 'com_phmoney', '', 1, 1, 0, 0, '{"name":"com_phmoney","type":"component","creationDate":"14-Apr-2019","author":"KAINOTOMO PH LTD","copyright":"KAINOTOMO PH LTD - All rights reserved.","authorEmail":"info@kainotomo.com","authorUrl":"https:\\/\\/www.kainotomo.com","version":"0.2.13","description":"Money Management Component","group":"","filename":"phmoney"}', '{}', 0, '0000-00-00 00:00:00', 0, 0),
+(0, 'PH Money Package', 'package', 'pkg_phmoney', '', 0, 1, 1, 0, '{"name":"PH Money Package","type":"package","creationDate":"14-Apr-2019","author":"KAINOTOMO PH LTD","copyright":"KAINOTOMO PH LTD - All rights reserved.","authorEmail":"info@kainotomo.com","authorUrl":"https:\\/\\/www.kainotomo.com","version":"0.2.13","description":"PH Money Package","group":"","filename":"pkg_phmoney"}', '{}', 0, '0000-00-00 00:00:00', 0, 0);
 
 INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `checked_out`, `checked_out_time`, `ordering`, `state`)
 SELECT `extension_id`, 'English (en-GB)', 'language', 'en-GB', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0 FROM `#__extensions` WHERE `name` = 'English (en-GB) Language Pack';
@@ -1361,7 +1362,7 @@ SELECT 23, 'main', 'com_csp', 'Content-Security-Policy', '', 'Content-Security-P
 INSERT INTO `#__menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`)
 SELECT 101, 'mainmenu', 'Home', 'home', '', 'home', 'index.php?option=com_content&view=featured', 'component', 1, 1, 1, `extension_id`, 0, '0000-00-00 00:00:00', 0, 1, '', 0, '{"featured_categories":[""],"layout_type":"blog","num_leading_articles":"1","num_intro_articles":"3","num_columns":"3","num_links":"0","multi_column_order":"1","orderby_pri":"","orderby_sec":"front","order_date":"","show_pagination":"2","show_pagination_results":"1","show_title":"","link_titles":"","show_intro":"","info_block_position":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_vote":"","show_readmore":"","show_readmore_title":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_hits":"","show_noauth":"","show_feed_link":"1","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1,"page_title":"","show_page_heading":1,"page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 41, 42, 1, '*', 0 FROM `#__extensions` WHERE `name` = 'com_content';
 INSERT INTO `#__menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`)
-SELECT 102, 'main', 'COM_PHMONEY_MENU', 'com-phmoney-menu', '', 'com-phmoney-menu', 'index.php?option=com_phmoney', 'component', 1, 1, 1, 195, 0, '0000-00-00 00:00:00', 0, 1, '../media/com_phmoney/images/ph-16x16.png', 0, '{}', 43, 44, 0, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00';
+SELECT 102, 'main', 'COM_PHMONEY_MENU', 'com-phmoney-menu', '', 'com-phmoney-menu', 'index.php?option=com_phmoney', 'component', 1, 1, 1, `extension_id`, 0, '0000-00-00 00:00:00', 0, 1, 'class:associations', 0, '', 43, 44, 0, '*', 1 FROM `#__extensions` WHERE `name` = 'com_phmoney';
 
 -- --------------------------------------------------------
 
@@ -1942,7 +1943,8 @@ CREATE TABLE IF NOT EXISTS `#__update_sites` (
 INSERT INTO `#__update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`) VALUES
 (1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 0),
 (2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 0),
-(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 0);
+(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 0),
+(4, 'PH Money', 'extension', 'https://www.kainotomo.com/index.php?option=com_phreleasesystem&view=xml&layout=extension&product=ph-money&dummy=extension.xml', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1966,6 +1968,8 @@ INSERT INTO `#__update_sites_extensions` (`update_site_id`, `extension_id`)
 SELECT 2, `extension_id` FROM `#__extensions` WHERE `name` = 'English (en-GB) Language Pack';
 INSERT INTO `#__update_sites_extensions` (`update_site_id`, `extension_id`)
 SELECT 3, `extension_id` FROM `#__extensions` WHERE `name` = 'com_joomlaupdate';
+INSERT INTO `#__update_sites_extensions` (`update_site_id`, `extension_id`)
+SELECT 4, `extension_id` FROM `#__extensions` WHERE `name` = 'PH Money Package';
 
 -- --------------------------------------------------------
 
@@ -2355,10 +2359,10 @@ INSERT INTO `#__workflow_transitions` (`id`, `asset_id`, `published`, `ordering`
 (4, 64, 1, 4, 1, 'Archive', '', -1, 4);
 
 --
--- Table structure for table `h4xcx_phmoney_accounts`
+-- Table structure for table `#__phmoney_accounts`
 --
 
-CREATE TABLE `h4xcx_phmoney_accounts` (
+CREATE TABLE `#__phmoney_accounts` (
   `id` int(11) UNSIGNED NOT NULL,
   `parent_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `lft` int(11) NOT NULL DEFAULT 0,
@@ -2392,29 +2396,29 @@ CREATE TABLE `h4xcx_phmoney_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `h4xcx_phmoney_accounts`
+-- Dumping data for table `#__phmoney_accounts`
 --
 
-INSERT INTO `h4xcx_phmoney_accounts` VALUES
+INSERT INTO `#__phmoney_accounts` VALUES
 (1, 0, 0, 0, 0, '', '', 'ROOT', 'root', NULL, '', '', 1, 0, '0000-00-00 00:00:00', 1, '', '', '', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, '', 1, 1, 1, 139);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_account_types`
+-- Table structure for table `#__phmoney_account_types`
 --
 
-CREATE TABLE `h4xcx_phmoney_account_types` (
+CREATE TABLE `#__phmoney_account_types` (
   `id` int(11) UNSIGNED NOT NULL,
   `value` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `h4xcx_phmoney_account_types`
+-- Dumping data for table `#__phmoney_account_types`
 --
 
-INSERT INTO `h4xcx_phmoney_account_types` VALUES
+INSERT INTO `#__phmoney_account_types` VALUES
 (1, 'asset', 'COM_PHMONEY_ASSET'),
 (2, 'share', 'COM_PHMONEY_SHARE'),
 (3, 'liability', 'COM_PHMONEY_LIABILITY'),
@@ -2425,10 +2429,10 @@ INSERT INTO `h4xcx_phmoney_account_types` VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_currencys`
+-- Table structure for table `#__phmoney_currencys`
 --
 
-CREATE TABLE `h4xcx_phmoney_currencys` (
+CREATE TABLE `#__phmoney_currencys` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(13) DEFAULT NULL,
   `code` varchar(3) NOT NULL,
@@ -2437,10 +2441,10 @@ CREATE TABLE `h4xcx_phmoney_currencys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `h4xcx_phmoney_currencys`
+-- Dumping data for table `#__phmoney_currencys`
 --
 
-INSERT INTO `h4xcx_phmoney_currencys` VALUES
+INSERT INTO `#__phmoney_currencys` VALUES
 (1, 'AED ( د.إ.‏ )', 'AED', 'د.إ.‏', 100),
 (2, 'NIO ( C$ )', 'NIO', 'C$', 100),
 (3, 'NOK ( kr )', 'NOK', 'kr', 100),
@@ -2598,10 +2602,10 @@ INSERT INTO `h4xcx_phmoney_currencys` VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_imports`
+-- Table structure for table `#__phmoney_imports`
 --
 
-CREATE TABLE `h4xcx_phmoney_imports` (
+CREATE TABLE `#__phmoney_imports` (
   `id` int(11) UNSIGNED NOT NULL,
   `percent` float DEFAULT NULL COMMENT 'Confidence percentage',
   `portfolio_id` int(11) UNSIGNED NOT NULL,
@@ -2622,10 +2626,10 @@ CREATE TABLE `h4xcx_phmoney_imports` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_portfolios`
+-- Table structure for table `#__phmoney_portfolios`
 --
 
-CREATE TABLE `h4xcx_phmoney_portfolios` (
+CREATE TABLE `#__phmoney_portfolios` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2638,19 +2642,19 @@ CREATE TABLE `h4xcx_phmoney_portfolios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `h4xcx_phmoney_portfolios`
+-- Dumping data for table `#__phmoney_portfolios`
 --
 
-INSERT INTO `h4xcx_phmoney_portfolios` VALUES
+INSERT INTO `#__phmoney_portfolios` VALUES
 (1, 'ROOT', 'root', NULL, 139, NULL, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_prices`
+-- Table structure for table `#__phmoney_prices`
 --
 
-CREATE TABLE `h4xcx_phmoney_prices` (
+CREATE TABLE `#__phmoney_prices` (
   `id` int(11) UNSIGNED NOT NULL,
   `account_id` int(11) UNSIGNED NOT NULL COMMENT 'FK to the #__phmoney_accounts',
   `created` datetime NOT NULL DEFAULT current_timestamp(),
@@ -2660,10 +2664,10 @@ CREATE TABLE `h4xcx_phmoney_prices` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_splits`
+-- Table structure for table `#__phmoney_splits`
 --
 
-CREATE TABLE `h4xcx_phmoney_splits` (
+CREATE TABLE `#__phmoney_splits` (
   `id` int(10) UNSIGNED NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `account_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'FK to the #__phmoney_accounts',
@@ -2680,20 +2684,20 @@ CREATE TABLE `h4xcx_phmoney_splits` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_split_types`
+-- Table structure for table `#__phmoney_split_types`
 --
 
-CREATE TABLE `h4xcx_phmoney_split_types` (
+CREATE TABLE `#__phmoney_split_types` (
   `id` int(11) UNSIGNED NOT NULL,
   `value` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `h4xcx_phmoney_split_types`
+-- Dumping data for table `#__phmoney_split_types`
 --
 
-INSERT INTO `h4xcx_phmoney_split_types` VALUES
+INSERT INTO `#__phmoney_split_types` VALUES
 (1, 'nan', 'COM_PHMONEY_NAN_LINES'),
 (2, 'buy', 'COM_PHMONEY_BUY'),
 (3, 'sell', 'COM_PHMONEY_SELL'),
@@ -2704,10 +2708,10 @@ INSERT INTO `h4xcx_phmoney_split_types` VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `h4xcx_phmoney_transactions`
+-- Table structure for table `#__phmoney_transactions`
 --
 
-CREATE TABLE `h4xcx_phmoney_transactions` (
+CREATE TABLE `#__phmoney_transactions` (
   `id` int(11) UNSIGNED NOT NULL,
   `portfolio_id` int(11) UNSIGNED NOT NULL COMMENT 'FK to the #__phmoney_portfolios',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -2724,23 +2728,13 @@ CREATE TABLE `h4xcx_phmoney_transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `h4xcx_update_sites`
---
-
-INSERT INTO `h4xcx_update_sites` VALUES
-(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1559911631, ''),
-(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1559911631, ''),
-(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1559911632, ''),
-(4, 'PH Money', 'extension', 'https://www.kainotomo.com/index.php?option=com_phreleasesystem&view=xml&layout=extension&product=ph-money&dummy=extension.xml', 1, 1559911634, '');
-
---
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `h4xcx_phmoney_accounts`
+-- Indexes for table `#__phmoney_accounts`
 --
-ALTER TABLE `h4xcx_phmoney_accounts`
+ALTER TABLE `#__phmoney_accounts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cat_idx` (`extension`,`published`,`access`),
   ADD KEY `idx_access` (`access`),
@@ -2754,28 +2748,28 @@ ALTER TABLE `h4xcx_phmoney_accounts`
   ADD KEY `portfolio_id` (`portfolio_id`);
 
 --
--- Indexes for table `h4xcx_phmoney_account_types`
+-- Indexes for table `#__phmoney_account_types`
 --
-ALTER TABLE `h4xcx_phmoney_account_types`
+ALTER TABLE `#__phmoney_account_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `h4xcx_phmoney_currencys`
+-- Indexes for table `#__phmoney_currencys`
 --
-ALTER TABLE `h4xcx_phmoney_currencys`
+ALTER TABLE `#__phmoney_currencys`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `ISOCurrencySymbol` (`code`);
 
 --
--- Indexes for table `h4xcx_phmoney_imports`
+-- Indexes for table `#__phmoney_imports`
 --
-ALTER TABLE `h4xcx_phmoney_imports`
+ALTER TABLE `#__phmoney_imports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `h4xcx_phmoney_portfolios`
+-- Indexes for table `#__phmoney_portfolios`
 --
-ALTER TABLE `h4xcx_phmoney_portfolios`
+ALTER TABLE `#__phmoney_portfolios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_state` (`published`),
   ADD KEY `currency_id` (`currency_id`),
@@ -2783,16 +2777,16 @@ ALTER TABLE `h4xcx_phmoney_portfolios`
   ADD KEY `idx_alias` (`alias`(191));
 
 --
--- Indexes for table `h4xcx_phmoney_prices`
+-- Indexes for table `#__phmoney_prices`
 --
-ALTER TABLE `h4xcx_phmoney_prices`
+ALTER TABLE `#__phmoney_prices`
   ADD PRIMARY KEY (`id`),
   ADD KEY `portfolio_id` (`account_id`);
 
 --
--- Indexes for table `h4xcx_phmoney_splits`
+-- Indexes for table `#__phmoney_splits`
 --
-ALTER TABLE `h4xcx_phmoney_splits`
+ALTER TABLE `#__phmoney_splits`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_catid` (`account_id`),
   ADD KEY `idx_trxid` (`transaction_id`) USING BTREE,
@@ -2800,15 +2794,15 @@ ALTER TABLE `h4xcx_phmoney_splits`
   ADD KEY `idx_split_type_id` (`split_type_id`) USING BTREE;
 
 --
--- Indexes for table `h4xcx_phmoney_split_types`
+-- Indexes for table `#__phmoney_split_types`
 --
-ALTER TABLE `h4xcx_phmoney_split_types`
+ALTER TABLE `#__phmoney_split_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `h4xcx_phmoney_transactions`
+-- Indexes for table `#__phmoney_transactions`
 --
-ALTER TABLE `h4xcx_phmoney_transactions`
+ALTER TABLE `#__phmoney_transactions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_state` (`state`),
   ADD KEY `portfolio_id` (`portfolio_id`);
@@ -2818,57 +2812,57 @@ ALTER TABLE `h4xcx_phmoney_transactions`
 --
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_accounts`
+-- AUTO_INCREMENT for table `#__phmoney_accounts`
 --
-ALTER TABLE `h4xcx_phmoney_accounts`
+ALTER TABLE `#__phmoney_accounts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_account_types`
+-- AUTO_INCREMENT for table `#__phmoney_account_types`
 --
-ALTER TABLE `h4xcx_phmoney_account_types`
+ALTER TABLE `#__phmoney_account_types`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_currencys`
+-- AUTO_INCREMENT for table `#__phmoney_currencys`
 --
-ALTER TABLE `h4xcx_phmoney_currencys`
+ALTER TABLE `#__phmoney_currencys`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_imports`
+-- AUTO_INCREMENT for table `#__phmoney_imports`
 --
-ALTER TABLE `h4xcx_phmoney_imports`
+ALTER TABLE `#__phmoney_imports`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_portfolios`
+-- AUTO_INCREMENT for table `#__phmoney_portfolios`
 --
-ALTER TABLE `h4xcx_phmoney_portfolios`
+ALTER TABLE `#__phmoney_portfolios`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_prices`
+-- AUTO_INCREMENT for table `#__phmoney_prices`
 --
-ALTER TABLE `h4xcx_phmoney_prices`
+ALTER TABLE `#__phmoney_prices`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_splits`
+-- AUTO_INCREMENT for table `#__phmoney_splits`
 --
-ALTER TABLE `h4xcx_phmoney_splits`
+ALTER TABLE `#__phmoney_splits`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_split_types`
+-- AUTO_INCREMENT for table `#__phmoney_split_types`
 --
-ALTER TABLE `h4xcx_phmoney_split_types`
+ALTER TABLE `#__phmoney_split_types`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `h4xcx_phmoney_transactions`
+-- AUTO_INCREMENT for table `#__phmoney_transactions`
 --
-ALTER TABLE `h4xcx_phmoney_transactions`
+ALTER TABLE `#__phmoney_transactions`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -2876,35 +2870,35 @@ ALTER TABLE `h4xcx_phmoney_transactions`
 --
 
 --
--- Constraints for table `h4xcx_phmoney_accounts`
+-- Constraints for table `#__phmoney_accounts`
 --
-ALTER TABLE `h4xcx_phmoney_accounts`
-  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_2` FOREIGN KEY (`currency_id`) REFERENCES `h4xcx_phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_3` FOREIGN KEY (`account_type_id`) REFERENCES `h4xcx_phmoney_account_types` (`id`),
-  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_4` FOREIGN KEY (`portfolio_id`) REFERENCES `h4xcx_phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `#__phmoney_accounts`
+  ADD CONSTRAINT `#__phmoney_accounts_ibfk_2` FOREIGN KEY (`currency_id`) REFERENCES `#__phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `#__phmoney_accounts_ibfk_3` FOREIGN KEY (`account_type_id`) REFERENCES `#__phmoney_account_types` (`id`),
+  ADD CONSTRAINT `#__phmoney_accounts_ibfk_4` FOREIGN KEY (`portfolio_id`) REFERENCES `#__phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `h4xcx_phmoney_portfolios`
+-- Constraints for table `#__phmoney_portfolios`
 --
-ALTER TABLE `h4xcx_phmoney_portfolios`
-  ADD CONSTRAINT `h4xcx_phmoney_portfolios_ibfk_1` FOREIGN KEY (`currency_id`) REFERENCES `h4xcx_phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `h4xcx_phmoney_portfolios_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `h4xcx_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `#__phmoney_portfolios`
+  ADD CONSTRAINT `#__phmoney_portfolios_ibfk_1` FOREIGN KEY (`currency_id`) REFERENCES `#__phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `#__phmoney_portfolios_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `#__users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `h4xcx_phmoney_prices`
+-- Constraints for table `#__phmoney_prices`
 --
-ALTER TABLE `h4xcx_phmoney_prices`
-  ADD CONSTRAINT `h4xcx_phmoney_prices_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `h4xcx_phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `#__phmoney_prices`
+  ADD CONSTRAINT `#__phmoney_prices_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `#__phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `h4xcx_phmoney_splits`
+-- Constraints for table `#__phmoney_splits`
 --
-ALTER TABLE `h4xcx_phmoney_splits`
-  ADD CONSTRAINT `h4xcx_phmoney_splits_ibfk_2` FOREIGN KEY (`transaction_id`) REFERENCES `h4xcx_phmoney_transactions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `h4xcx_phmoney_splits_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `h4xcx_phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `#__phmoney_splits`
+  ADD CONSTRAINT `#__phmoney_splits_ibfk_2` FOREIGN KEY (`transaction_id`) REFERENCES `#__phmoney_transactions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `#__phmoney_splits_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `#__phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `h4xcx_phmoney_transactions`
+-- Constraints for table `#__phmoney_transactions`
 --
-ALTER TABLE `h4xcx_phmoney_transactions`
-  ADD CONSTRAINT `h4xcx_phmoney_transactions_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `h4xcx_phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `#__phmoney_transactions`
+  ADD CONSTRAINT `#__phmoney_transactions_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `#__phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
