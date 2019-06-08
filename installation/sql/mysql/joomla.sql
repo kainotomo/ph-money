@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `#__assets` (
 --
 
 INSERT INTO `#__assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-(1, 0, 0, 131, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.api":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+(1, 0, 0, 133, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.api":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 (2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 (3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1}}'),
 (4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
@@ -96,7 +96,8 @@ INSERT INTO `#__assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `titl
 (66, 1, 115, 116, 1, 'com_actionlogs', 'com_actionlogs', '{}'),
 (67, 18, 76, 77, 2, 'com_modules.module.88', 'Latest Actions', '{}'),
 (68, 18, 80, 81, 2, 'com_modules.module.89', 'Privacy Dashboard', '{}'),
-(69, 1, 129, 130, 1, 'com_csp', 'com_csp', '{}');
+(69, 1, 129, 130, 1, 'com_csp', 'com_csp', '{}'),
+(70, 1, 131, 132, 1, 'com_phmoney', 'com_phmoney', '{}');
 
 -- --------------------------------------------------------
 
@@ -433,7 +434,10 @@ INSERT INTO `#__content_types` (`type_id`, `type_title`, `type_alias`, `table`, 
 (10, 'Banners Category', 'com_banners.category', '{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special": {"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}','','{"formFile":"administrator\\/components\\/com_categories\\/forms\\/category.xml", "hideFields":["asset_id","checked_out","checked_out_time","version","lft","rgt","level","path","extension"], "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"], "convertToInt":["publish_up", "publish_down"], "displayLookup":[{"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}'),
 (11, 'Banner Client', 'com_banners.client', '{"special":{"dbtable":"#__banner_clients","key":"id","type":"Client","prefix":"BannersTable"}}', '', '', '', '{"formFile":"administrator\\/components\\/com_banners\\/forms\\/client.xml", "hideFields":["checked_out","checked_out_time"], "ignoreChanges":["checked_out", "checked_out_time"], "convertToInt":[], "displayLookup":[]}'),
 (12, 'User Notes', 'com_users.note', '{"special":{"dbtable":"#__user_notes","key":"id","type":"Note","prefix":"UsersTable"}}', '', '', '', '{"formFile":"administrator\\/components\\/com_users\\/forms\\/note.xml", "hideFields":["checked_out","checked_out_time", "publish_up", "publish_down"],"ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time"], "convertToInt":["publish_up", "publish_down"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}, {"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"}, {"sourceColumn":"user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"}, {"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"}]}'),
-(13, 'User Notes Category', 'com_users.category', '{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special":{"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}', '', '{"formFile":"administrator\\/components\\/com_categories\\/forms\\/category.xml", "hideFields":["checked_out","checked_out_time","version","lft","rgt","level","path","extension"], "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"], "convertToInt":["publish_up", "publish_down"], "displayLookup":[{"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"}, {"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}');
+(13, 'User Notes Category', 'com_users.category', '{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special":{"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}', '', '{"formFile":"administrator\\/components\\/com_categories\\/forms\\/category.xml", "hideFields":["checked_out","checked_out_time","version","lft","rgt","level","path","extension"], "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"], "convertToInt":["publish_up", "publish_down"], "displayLookup":[{"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"}, {"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}'),
+(10000, 'Account', 'com_phmoney.account', '{"special":{"dbtable":"#__phmoney_accounts","key":"id","type":"Account","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description","core_hits":"null","core_publish_up":"null","core_publish_down":"null","core_access":"access","core_params":"params","core_featured":"null","core_metadata":"null","core_language":"language","core_images":"null","core_urls":"null","core_version":"null","core_ordering":"null","core_metakey":"metakey","core_metadesc":"metadesc","core_catid":"null","core_xreference":"null","asset_id":"asset_id"},"special":{"path":"path","code":"code","note":"note","portfolio_id":"portfolio_id","account_type_id":"account_type_id","currency_id":"currency_id"}}', '', NULL),
+(10001, 'Transaction', 'com_phmoney.transaction', '{"special":{"dbtable":"#__phmoney_transactions","key":"id","type":"Transaction","prefix":"TransactionTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '\r\n{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"null", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"Ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"asset_id"}, "special":{"portfolio_id":"portfolio_id","num":"num","description":"description","checked_out":"checked_out","checked_out_time":"checked_out_time"}}', 'PhmoneyHelperRoute::getPhmoneyRoute', '{"formFile":"administrator\\/components\\/com_phmoney\\/forms\\/transaction.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}'),
+(10002, 'Split', 'com_phmoney.split', '{"special":{"dbtable":"#__phmoney_splits","key":"id","type":"Split","prefix":"SplitTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '\r\n{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"asset_id"}, "special":{"transaction_id":"transaction_id","value":"value","description":"description","rate":"rate","shares":"shares","price":"price","reconcile_state":"reconcile_state"}}', 'PhmoneyHelperRoute::getPhmoneyRoute', '{"formFile":"administrator\\/components\\/com_phmoney\\/forms\\/split.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["version"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}');
 
 -- --------------------------------------------------------
 
@@ -708,7 +712,8 @@ INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, 
 (0, 'atum', 'template', 'atum', '', 1, 1, 1, 0, '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (0, 'cassiopeia', 'template', 'cassiopeia', '', 0, 1, 1, 0, '', '{"logoFile":"","fluidContainer":"0","sidebarLeftWidth":"3","sidebarRightWidth":"3"}', 0, '0000-00-00 00:00:00', 0, 0),
 (0, 'files_joomla', 'file', 'joomla', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(0, 'English (en-GB) Language Pack', 'package', 'pkg_en-GB', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0);
+(0, 'English (en-GB) Language Pack', 'package', 'pkg_en-GB', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(0, 'PH Money Package', 'package', 'pkg_phmoney', '', '', 0, 1, 1, 0, '{"name":"PH Money Package","type":"package","creationDate":"14-Apr-2019","author":"KAINOTOMO PH LTD","copyright":"KAINOTOMO PH LTD - All rights reserved.","authorEmail":"info@kainotomo.com","authorUrl":"https:\\/\\/www.kainotomo.com","version":"0.2.13","description":"PH Money Package","group":"","filename":"pkg_phmoney"}', '{}', 0, '0000-00-00 00:00:00', 0, 0);
 
 INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `checked_out`, `checked_out_time`, `ordering`, `state`)
 SELECT `extension_id`, 'English (en-GB)', 'language', 'en-GB', '', 0, 1, 1, 1, '', '', 0, '0000-00-00 00:00:00', 0, 0 FROM `#__extensions` WHERE `name` = 'English (en-GB) Language Pack';
@@ -1355,6 +1360,8 @@ INSERT INTO `#__menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link
 SELECT 23, 'main', 'com_csp', 'Content-Security-Policy', '', 'Content-Security-Policy', 'index.php?option=com_csp', 'component', 1, 1, 1, `extension_id`, 0, '0000-00-00 00:00:00', 0, 0, 'class:associations', 0, '', 41, 42, 0, '*', 1 FROM `#__extensions` WHERE `name` = 'com_csp';
 INSERT INTO `#__menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`)
 SELECT 101, 'mainmenu', 'Home', 'home', '', 'home', 'index.php?option=com_content&view=featured', 'component', 1, 1, 1, `extension_id`, 0, '0000-00-00 00:00:00', 0, 1, '', 0, '{"featured_categories":[""],"layout_type":"blog","num_leading_articles":"1","num_intro_articles":"3","num_columns":"3","num_links":"0","multi_column_order":"1","orderby_pri":"","orderby_sec":"front","order_date":"","show_pagination":"2","show_pagination_results":"1","show_title":"","link_titles":"","show_intro":"","info_block_position":"","show_category":"","link_category":"","show_parent_category":"","link_parent_category":"","show_author":"","link_author":"","show_create_date":"","show_modify_date":"","show_publish_date":"","show_item_navigation":"","show_vote":"","show_readmore":"","show_readmore_title":"","show_icons":"","show_print_icon":"","show_email_icon":"","show_hits":"","show_noauth":"","show_feed_link":"1","feed_summary":"","menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1,"page_title":"","show_page_heading":1,"page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 41, 42, 1, '*', 0 FROM `#__extensions` WHERE `name` = 'com_content';
+INSERT INTO `#__menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`)
+SELECT 102, 'main', 'COM_PHMONEY_MENU', 'com-phmoney-menu', '', 'com-phmoney-menu', 'index.php?option=com_phmoney', 'component', 1, 1, 1, 195, 0, '0000-00-00 00:00:00', 0, 1, '../media/com_phmoney/images/ph-16x16.png', 0, '{}', 43, 44, 0, '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00';
 
 -- --------------------------------------------------------
 
@@ -2346,3 +2353,558 @@ INSERT INTO `#__workflow_transitions` (`id`, `asset_id`, `published`, `ordering`
 (2, 62, 1, 2, 1, 'Publish', '', -1, 2),
 (3, 63, 1, 3, 1, 'Trash', '', -1, 3),
 (4, 64, 1, 4, 1, 'Archive', '', -1, 4);
+
+--
+-- Table structure for table `h4xcx_phmoney_accounts`
+--
+
+CREATE TABLE `h4xcx_phmoney_accounts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `lft` int(11) NOT NULL DEFAULT 0,
+  `rgt` int(11) NOT NULL DEFAULT 0,
+  `level` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `extension` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT 0,
+  `checked_out` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `access` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `params` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metadesc` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'The meta description for the page.',
+  `metakey` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'The meta keywords for the page.',
+  `metadata` varchar(2048) COLLATE utf8mb4_unicode_ci DEFAULT '' COMMENT 'JSON encoded metadata properties.',
+  `created_user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `created_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modified_user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `modified_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hits` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `language` char(7) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `version` int(10) UNSIGNED NOT NULL DEFAULT 1,
+  `portfolio_id` int(11) UNSIGNED NOT NULL COMMENT 'FK to the #__phmoney_portfolios',
+  `account_type_id` int(11) UNSIGNED NOT NULL DEFAULT 1 COMMENT 'FK to the #__phmoney_account_types table.',
+  `currency_id` int(11) UNSIGNED NOT NULL DEFAULT 139 COMMENT 'FK to the #__phmoney_currencys'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `h4xcx_phmoney_accounts`
+--
+
+INSERT INTO `h4xcx_phmoney_accounts` VALUES
+(1, 0, 0, 0, 0, '', '', 'ROOT', 'root', NULL, '', '', 1, 0, '0000-00-00 00:00:00', 1, '', '', '', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, '', 1, 1, 1, 139);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_account_types`
+--
+
+CREATE TABLE `h4xcx_phmoney_account_types` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `value` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `h4xcx_phmoney_account_types`
+--
+
+INSERT INTO `h4xcx_phmoney_account_types` VALUES
+(1, 'asset', 'COM_PHMONEY_ASSET'),
+(2, 'share', 'COM_PHMONEY_SHARE'),
+(3, 'liability', 'COM_PHMONEY_LIABILITY'),
+(4, 'equity', 'COM_PHMONEY_EQUITY'),
+(5, 'income', 'COM_PHMONEY_INCOME'),
+(6, 'expense', 'COM_PHMONEY_EXPENSE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_currencys`
+--
+
+CREATE TABLE `h4xcx_phmoney_currencys` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(13) DEFAULT NULL,
+  `code` varchar(3) NOT NULL,
+  `symbol` varchar(5) DEFAULT NULL,
+  `denom` int(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `h4xcx_phmoney_currencys`
+--
+
+INSERT INTO `h4xcx_phmoney_currencys` VALUES
+(1, 'AED ( د.إ.‏ )', 'AED', 'د.إ.‏', 100),
+(2, 'NIO ( C$ )', 'NIO', 'C$', 100),
+(3, 'NOK ( kr )', 'NOK', 'kr', 100),
+(4, 'NPR ( रु )', 'NPR', 'रु', 100),
+(5, 'NZD ( $ )', 'NZD', '$', 100),
+(6, 'OMR ( ر.ع.‏ )', 'OMR', 'ر.ع.‏', 1000),
+(7, 'PAB ( B/. )', 'PAB', 'B/.', 100),
+(8, 'PEN ( S/ )', 'PEN', 'S/', 100),
+(9, 'PGK ( K )', 'PGK', 'K', 100),
+(10, 'PHP ( ₱ )', 'PHP', '₱', 100),
+(11, 'PKR ( Rs )', 'PKR', 'Rs', 100),
+(12, 'PLN ( zł )', 'PLN', 'zł', 100),
+(13, 'PYG ( ₲ )', 'PYG', '₲', 1),
+(14, 'QAR ( ر.ق.‏ )', 'QAR', 'ر.ق.‏', 100),
+(15, 'RON ( lei )', 'RON', 'lei', 100),
+(16, 'RSD ( дин. )', 'RSD', 'дин.', 100),
+(17, 'NGN ( ₦ )', 'NGN', '₦', 100),
+(18, 'RUB ( ₽ )', 'RUB', '₽', 100),
+(19, 'NAD ( $ )', 'NAD', '$', 100),
+(20, 'MYR ( RM )', 'MYR', 'RM', 100),
+(21, 'LKR ( රු. )', 'LKR', 'රු.', 100),
+(22, 'LRD ( $ )', 'LRD', '$', 100),
+(23, 'LYD ( د.ل.‏ )', 'LYD', 'د.ل.‏', 1000),
+(24, 'MAD ( د.م.‏ )', 'MAD', 'د.م.‏', 100),
+(25, 'MDL ( L )', 'MDL', 'L', 100),
+(26, 'MGA ( Ar )', 'MGA', 'Ar', 100),
+(27, 'MKD ( ден )', 'MKD', 'ден', 100),
+(28, 'MMK ( K )', 'MMK', 'K', 100),
+(29, 'MNT ( ₮ )', 'MNT', '₮', 100),
+(30, 'MOP ( MOP$ )', 'MOP', 'MOP$', 100),
+(31, 'MRO ( أ.م.‏ )', 'MRO', 'أ.م.‏', 100),
+(32, 'MUR ( Rs )', 'MUR', 'Rs', 100),
+(33, 'MVR ( ރ. )', 'MVR', 'ރ.', 100),
+(34, 'MWK ( MK )', 'MWK', 'MK', 100),
+(35, 'MXN ( $ )', 'MXN', '$', 100),
+(36, 'MZN ( MTn )', 'MZN', 'MTn', 100),
+(37, 'RWF ( RF )', 'RWF', 'RF', 1),
+(38, 'SAR ( ر.س.‏ )', 'SAR', 'ر.س.‏', 100),
+(39, 'SBD ( $ )', 'SBD', '$', 100),
+(40, 'TZS ( TSh )', 'TZS', 'TSh', 100),
+(41, 'UAH ( ₴ )', 'UAH', '₴', 100),
+(42, 'UGX ( USh )', 'UGX', 'USh', 1),
+(43, 'USD ( $ )', 'USD', '$', 100),
+(44, 'UYU ( $ )', 'UYU', '$', 100),
+(45, 'UZS ( сўм )', 'UZS', 'сўм', 100),
+(46, 'VEF ( Bs. )', 'VEF', 'Bs.', 100),
+(47, 'VND ( ₫ )', 'VND', '₫', 1),
+(48, 'VUV ( VT )', 'VUV', 'VT', 1),
+(49, 'WST ( WS$ )', 'WST', 'WS$', 100),
+(50, 'XAF ( FCFA )', 'XAF', 'FCFA', 1),
+(51, 'XCD ( $ )', 'XCD', '$', 100),
+(52, 'XOF ( CFA )', 'XOF', 'CFA', 1),
+(53, 'XPF ( FCFP )', 'XPF', 'FCFP', 1),
+(54, 'YER ( ر.ي.‏ )', 'YER', 'ر.ي.‏', 100),
+(55, 'TWD ( NT$ )', 'TWD', 'NT$', 100),
+(56, 'TTD ( $ )', 'TTD', '$', 100),
+(57, 'TRY ( ₺ )', 'TRY', '₺', 100),
+(58, 'TOP ( T$ )', 'TOP', 'T$', 100),
+(59, 'SCR ( SR )', 'SCR', 'SR', 100),
+(60, 'SDG ( ج.س. )', 'SDG', 'ج.س.', 100),
+(61, 'SEK ( kr )', 'SEK', 'kr', 100),
+(62, 'SGD ( $ )', 'SGD', '$', 100),
+(63, 'SHP ( £ )', 'SHP', '£', 100),
+(64, 'SLL ( Le )', 'SLL', 'Le', 100),
+(65, 'SOS ( S )', 'SOS', 'S', 100),
+(66, 'LBP ( ل.ل.‏ )', 'LBP', 'ل.ل.‏', 100),
+(67, 'SRD ( $ )', 'SRD', '$', 100),
+(68, 'STD ( Db )', 'STD', 'Db', 100),
+(69, 'SYP ( ل.س.‏ )', 'SYP', 'ل.س.‏', 100),
+(70, 'SZL ( E )', 'SZL', 'E', 100),
+(71, 'THB ( ฿ )', 'THB', '฿', 100),
+(72, 'TJS ( смн )', 'TJS', 'смн', 100),
+(73, 'TMT ( m. )', 'TMT', 'm.', 100),
+(74, 'TND ( د.ت.‏ )', 'TND', 'د.ت.‏', 1000),
+(75, 'SSP ( £ )', 'SSP', '£', 100),
+(76, 'ZAR ( R )', 'ZAR', 'R', 100),
+(77, 'LAK ( ₭ )', 'LAK', '₭', 100),
+(78, 'KYD ( $ )', 'KYD', '$', 100),
+(79, 'BSD ( $ )', 'BSD', '$', 100),
+(80, 'BTN ( Nu. )', 'BTN', 'Nu.', 100),
+(81, 'BWP ( P )', 'BWP', 'P', 100),
+(82, 'BYN ( Br )', 'BYN', 'Br', 100),
+(83, 'BZD ( $ )', 'BZD', '$', 100),
+(84, 'CAD ( $ )', 'CAD', '$', 100),
+(85, 'CDF ( FC )', 'CDF', 'FC', 100),
+(86, 'CHF ( CHF )', 'CHF', 'CHF', 100),
+(87, 'CLP ( $ )', 'CLP', '$', 1),
+(88, 'CNY ( ¥ )', 'CNY', '¥', 100),
+(89, 'COP ( $ )', 'COP', '$', 100),
+(90, 'CRC ( ₡ )', 'CRC', '₡', 100),
+(91, 'CUP ( $ )', 'CUP', '$', 100),
+(92, 'CVE ( ​ )', 'CVE', '​', 100),
+(93, 'CZK ( Kč )', 'CZK', 'Kč', 100),
+(94, 'BRL ( R$ )', 'BRL', 'R$', 100),
+(95, 'DJF ( Fdj )', 'DJF', 'Fdj', 1),
+(96, 'BOB ( Bs )', 'BOB', 'Bs', 100),
+(97, 'BMD ( $ )', 'BMD', '$', 100),
+(98, 'AFN ( ؋ )', 'AFN', '؋', 100),
+(99, 'ALL ( Lekë )', 'ALL', 'Lekë', 100),
+(100, 'AMD ( ֏ )', 'AMD', '֏', 100),
+(101, 'ANG ( NAf. )', 'ANG', 'NAf.', 100),
+(102, 'AOA ( Kz )', 'AOA', 'Kz', 100),
+(103, 'ARS ( $ )', 'ARS', '$', 100),
+(104, 'AUD ( $ )', 'AUD', '$', 100),
+(105, 'AWG ( Afl. )', 'AWG', 'Afl.', 100),
+(106, 'AZN ( ₼ )', 'AZN', '₼', 100),
+(107, 'BAM ( КМ )', 'BAM', 'КМ', 100),
+(108, 'BBD ( $ )', 'BBD', '$', 100),
+(109, 'BDT ( ৳ )', 'BDT', '৳', 100),
+(110, 'BGN ( лв. )', 'BGN', 'лв.', 100),
+(111, 'BHD ( د.ب.‏ )', 'BHD', 'د.ب.‏', 1000),
+(112, 'BIF ( FBu )', 'BIF', 'FBu', 1),
+(113, 'BND ( $ )', 'BND', '$', 100),
+(114, 'DKK ( kr. )', 'DKK', 'kr.', 100),
+(115, 'DOP ( $ )', 'DOP', '$', 100),
+(116, 'DZD ( د.ج.‏ )', 'DZD', 'د.ج.‏', 100),
+(117, 'ILS ( ₪ )', 'ILS', '₪', 100),
+(118, 'INR ( ₹ )', 'INR', '₹', 100),
+(119, 'IQD ( د.ع.‏ )', 'IQD', 'د.ع.‏', 1000),
+(120, 'IRR ( ريال )', 'IRR', 'ريال', 100),
+(121, 'ISK ( ISK )', 'ISK', 'ISK', 1),
+(122, 'JMD ( $ )', 'JMD', '$', 100),
+(123, 'JOD ( د.ا.‏ )', 'JOD', 'د.ا.‏', 1000),
+(124, 'JPY ( ¥ )', 'JPY', '¥', 1),
+(125, 'KES ( Ksh )', 'KES', 'Ksh', 100),
+(126, 'KGS ( сом )', 'KGS', 'сом', 100),
+(127, 'KHR ( ៛ )', 'KHR', '៛', 100),
+(128, 'KMF ( CF )', 'KMF', 'CF', 1),
+(129, 'KPW ( ₩ )', 'KPW', '₩', 100),
+(130, 'KRW ( ₩ )', 'KRW', '₩', 1),
+(131, 'KWD ( د.ك.‏ )', 'KWD', 'د.ك.‏', 1000),
+(132, 'IDR ( Rp )', 'IDR', 'Rp', 100),
+(133, 'HUF ( Ft )', 'HUF', 'Ft', 100),
+(134, 'HTG ( G )', 'HTG', 'G', 100),
+(135, 'HRK ( kn )', 'HRK', 'kn', 100),
+(136, 'EGP ( ج.م.‏ )', 'EGP', 'ج.م.‏', 100),
+(137, 'ERN ( Nfk )', 'ERN', 'Nfk', 100),
+(138, 'ETB ( Br )', 'ETB', 'Br', 100),
+(139, 'EUR ( € )', 'EUR', '€', 100),
+(140, 'FJD ( $ )', 'FJD', '$', 100),
+(141, 'FKP ( £ )', 'FKP', '£', 100),
+(142, 'GBP ( £ )', 'GBP', '£', 100),
+(143, 'KZT ( ₸ )', 'KZT', '₸', 100),
+(144, 'GEL ( ₾ )', 'GEL', '₾', 100),
+(145, 'GIP ( £ )', 'GIP', '£', 100),
+(146, 'GMD ( D )', 'GMD', 'D', 100),
+(147, 'GNF ( FG )', 'GNF', 'FG', 1),
+(148, 'GTQ ( Q )', 'GTQ', 'Q', 100),
+(149, 'GYD ( $ )', 'GYD', '$', 100),
+(150, 'HKD ( $ )', 'HKD', '$', 100),
+(151, 'HNL ( L )', 'HNL', 'L', 100),
+(152, 'GHS ( GH₵ )', 'GHS', 'GH₵', 100),
+(153, 'ZMW ( K )', 'ZMW', 'K', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_imports`
+--
+
+CREATE TABLE `h4xcx_phmoney_imports` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `percent` float DEFAULT NULL COMMENT 'Confidence percentage',
+  `portfolio_id` int(11) UNSIGNED NOT NULL,
+  `account_id_source` int(11) UNSIGNED DEFAULT NULL COMMENT 'FK to accounts',
+  `account_id_destination` int(11) UNSIGNED DEFAULT NULL COMMENT 'FK to accounts',
+  `split_type_id_destination` int(11) UNSIGNED NOT NULL DEFAULT 1,
+  `post_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `num` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shares` decimal(10,5) NOT NULL DEFAULT 0.00000,
+  `status` tinyint(3) NOT NULL DEFAULT 0,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `params` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_portfolios`
+--
+
+CREATE TABLE `h4xcx_phmoney_portfolios` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency_id` int(11) UNSIGNED NOT NULL DEFAULT 139 COMMENT 'FK to the #__phmoney_currencys',
+  `user_id` int(11) DEFAULT NULL COMMENT 'FK to the #__users',
+  `published` tinyint(3) NOT NULL DEFAULT 0,
+  `user_default` tinyint(3) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Indicates if this portfolio is the default for the user',
+  `params` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `h4xcx_phmoney_portfolios`
+--
+
+INSERT INTO `h4xcx_phmoney_portfolios` VALUES
+(1, 'ROOT', 'root', NULL, 139, NULL, 0, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_prices`
+--
+
+CREATE TABLE `h4xcx_phmoney_prices` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `account_id` int(11) UNSIGNED NOT NULL COMMENT 'FK to the #__phmoney_accounts',
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `value` double NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_splits`
+--
+
+CREATE TABLE `h4xcx_phmoney_splits` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `account_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'FK to the #__phmoney_accounts',
+  `transaction_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'FK to the #__phmoney_transactions',
+  `value` bigint(10) NOT NULL DEFAULT 0,
+  `shares` decimal(10,5) NOT NULL DEFAULT 0.00000,
+  `split_type_id` int(11) UNSIGNED NOT NULL DEFAULT 1 COMMENT 'FK to the #__phmoney_account_types table.',
+  `reconcile_state` tinyint(1) NOT NULL DEFAULT 0,
+  `state` tinyint(3) NOT NULL DEFAULT 1,
+  `attribs` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `version` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_split_types`
+--
+
+CREATE TABLE `h4xcx_phmoney_split_types` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `value` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `h4xcx_phmoney_split_types`
+--
+
+INSERT INTO `h4xcx_phmoney_split_types` VALUES
+(1, 'nan', 'COM_PHMONEY_NAN_LINES'),
+(2, 'buy', 'COM_PHMONEY_BUY'),
+(3, 'sell', 'COM_PHMONEY_SELL'),
+(4, 'dividend', 'COM_PHMONEY_DIVIDEND'),
+(5, 'fee', 'COM_PHMONEY_FEE'),
+(6, 'price', 'COM_PHMONEY_PRICE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h4xcx_phmoney_transactions`
+--
+
+CREATE TABLE `h4xcx_phmoney_transactions` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `portfolio_id` int(11) UNSIGNED NOT NULL COMMENT 'FK to the #__phmoney_portfolios',
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `num` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` tinyint(3) NOT NULL DEFAULT 0,
+  `attribs` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ordering` int(11) NOT NULL DEFAULT 0,
+  `post_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `checked_out` int(11) UNSIGNED NOT NULL DEFAULT 0,
+  `checked_out_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `version` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `h4xcx_update_sites`
+--
+
+INSERT INTO `h4xcx_update_sites` VALUES
+(1, 'Joomla! Core', 'collection', 'https://update.joomla.org/core/list.xml', 1, 1559911631, ''),
+(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_3.xml', 1, 1559911631, ''),
+(3, 'Joomla! Update Component Update Site', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1559911632, ''),
+(4, 'PH Money', 'extension', 'https://www.kainotomo.com/index.php?option=com_phreleasesystem&view=xml&layout=extension&product=ph-money&dummy=extension.xml', 1, 1559911634, '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `h4xcx_phmoney_accounts`
+--
+ALTER TABLE `h4xcx_phmoney_accounts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_idx` (`extension`,`published`,`access`),
+  ADD KEY `idx_access` (`access`),
+  ADD KEY `idx_checkout` (`checked_out`),
+  ADD KEY `idx_path` (`path`(100)),
+  ADD KEY `idx_left_right` (`lft`,`rgt`),
+  ADD KEY `idx_alias` (`alias`(100)),
+  ADD KEY `idx_language` (`language`),
+  ADD KEY `currency_id` (`currency_id`),
+  ADD KEY `account_type_id` (`account_type_id`),
+  ADD KEY `portfolio_id` (`portfolio_id`);
+
+--
+-- Indexes for table `h4xcx_phmoney_account_types`
+--
+ALTER TABLE `h4xcx_phmoney_account_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `h4xcx_phmoney_currencys`
+--
+ALTER TABLE `h4xcx_phmoney_currencys`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ISOCurrencySymbol` (`code`);
+
+--
+-- Indexes for table `h4xcx_phmoney_imports`
+--
+ALTER TABLE `h4xcx_phmoney_imports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `h4xcx_phmoney_portfolios`
+--
+ALTER TABLE `h4xcx_phmoney_portfolios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_state` (`published`),
+  ADD KEY `currency_id` (`currency_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `idx_alias` (`alias`(191));
+
+--
+-- Indexes for table `h4xcx_phmoney_prices`
+--
+ALTER TABLE `h4xcx_phmoney_prices`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `portfolio_id` (`account_id`);
+
+--
+-- Indexes for table `h4xcx_phmoney_splits`
+--
+ALTER TABLE `h4xcx_phmoney_splits`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_catid` (`account_id`),
+  ADD KEY `idx_trxid` (`transaction_id`) USING BTREE,
+  ADD KEY `idx_featured_catid` (`account_id`) USING BTREE,
+  ADD KEY `idx_split_type_id` (`split_type_id`) USING BTREE;
+
+--
+-- Indexes for table `h4xcx_phmoney_split_types`
+--
+ALTER TABLE `h4xcx_phmoney_split_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `h4xcx_phmoney_transactions`
+--
+ALTER TABLE `h4xcx_phmoney_transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_state` (`state`),
+  ADD KEY `portfolio_id` (`portfolio_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_accounts`
+--
+ALTER TABLE `h4xcx_phmoney_accounts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_account_types`
+--
+ALTER TABLE `h4xcx_phmoney_account_types`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_currencys`
+--
+ALTER TABLE `h4xcx_phmoney_currencys`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_imports`
+--
+ALTER TABLE `h4xcx_phmoney_imports`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_portfolios`
+--
+ALTER TABLE `h4xcx_phmoney_portfolios`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_prices`
+--
+ALTER TABLE `h4xcx_phmoney_prices`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_splits`
+--
+ALTER TABLE `h4xcx_phmoney_splits`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_split_types`
+--
+ALTER TABLE `h4xcx_phmoney_split_types`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `h4xcx_phmoney_transactions`
+--
+ALTER TABLE `h4xcx_phmoney_transactions`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `h4xcx_phmoney_accounts`
+--
+ALTER TABLE `h4xcx_phmoney_accounts`
+  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_2` FOREIGN KEY (`currency_id`) REFERENCES `h4xcx_phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_3` FOREIGN KEY (`account_type_id`) REFERENCES `h4xcx_phmoney_account_types` (`id`),
+  ADD CONSTRAINT `h4xcx_phmoney_accounts_ibfk_4` FOREIGN KEY (`portfolio_id`) REFERENCES `h4xcx_phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `h4xcx_phmoney_portfolios`
+--
+ALTER TABLE `h4xcx_phmoney_portfolios`
+  ADD CONSTRAINT `h4xcx_phmoney_portfolios_ibfk_1` FOREIGN KEY (`currency_id`) REFERENCES `h4xcx_phmoney_currencys` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `h4xcx_phmoney_portfolios_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `h4xcx_users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `h4xcx_phmoney_prices`
+--
+ALTER TABLE `h4xcx_phmoney_prices`
+  ADD CONSTRAINT `h4xcx_phmoney_prices_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `h4xcx_phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `h4xcx_phmoney_splits`
+--
+ALTER TABLE `h4xcx_phmoney_splits`
+  ADD CONSTRAINT `h4xcx_phmoney_splits_ibfk_2` FOREIGN KEY (`transaction_id`) REFERENCES `h4xcx_phmoney_transactions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `h4xcx_phmoney_splits_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `h4xcx_phmoney_accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `h4xcx_phmoney_transactions`
+--
+ALTER TABLE `h4xcx_phmoney_transactions`
+  ADD CONSTRAINT `h4xcx_phmoney_transactions_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `h4xcx_phmoney_portfolios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
